@@ -329,11 +329,12 @@ Detalhes no Panorama do arquivo de análise.
 
 - **O que foi tirado:** antes de tornar o repositório público, os nomes de cidadãos comuns ditos nos vídeos foram substituídos por códigos (E2, E5, E15b…). O código é o número do conteúdo mais uma letra quando há mais de um entrevistado.
 - **O que foi generalizado:** detalhes de saúde e deficiência que não eram necessários à análise.
-- **Colaborador:** o nome dele foi retirado e o conteúdo das mensagens privadas não é reproduzido.
+- **Colaborador:** o nome dele foi retirado e o conteúdo das mensagens privadas não é reproduzido. A única sugestão dele usada no método (a expansão por sementes) aparece em paráfrase. **A autorização do colaborador para a paráfrase e para um eventual crédito nominal está pendente**; até ela ser dada, ele aparece só como "um colaborador".
 - **O que não foi publicado:** as transcrições completas e as legendas de terceiros da triagem.
 - **Onde está o original:** a versão com nomes fica num arquivo privado da pesquisadora.
 - **Políticos, candidatos e perfis que publicaram os vídeos continuam identificados**, porque são atores públicos.
 - **Lote 4:** Carlinhos Maia aparece com nome, por ser figura pública que falou de política em público. Os funcionários dele e a mulher abordada na rua aparecem só por código (E92a, E92b, E96). O nome de uma funcionária, dito no vídeo, não foi registrado.
+- **Conferência:** a lista de cada substituição e o resultado da busca final por nomes estão em [CHECKLIST-ANONIMIZACAO.md](CHECKLIST-ANONIMIZACAO.md). A busca pode ser repetida com [scripts/verificar_anonimizacao.py](scripts/verificar_anonimizacao.py) depois de qualquer edição.
 
 ## 13. Reprodutibilidade: o que está no projeto
 
@@ -349,6 +350,7 @@ Detalhes no Panorama do arquivo de análise.
 | [scripts/processar_videos.sh](scripts/processar_videos.sh) | Download, quadros e transcrição |
 | [scripts/data_do_shortcode.py](scripts/data_do_shortcode.py) | Data de publicação a partir do link |
 | [scripts/triagem_metadados.py](scripts/triagem_metadados.py) | Triagem dos candidatos da expansão |
+| [scripts/verificar_anonimizacao.py](scripts/verificar_anonimizacao.py) | Busca por nomes de entrevistados nos arquivos versionados |
 | [scripts/agregar_resultados_tse.py](scripts/agregar_resultados_tse.py) | Agregação dos arquivos do TSE |
 
 **Ferramentas usadas:**
