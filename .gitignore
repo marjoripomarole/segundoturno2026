@@ -1,0 +1,7 @@
+.DS_Store
+*.mp4
+*.wav
+*.mp3
+__pycache__/
+# Material com dados pessoais de entrevistados e transcrições completas: nunca versionar
+privado/

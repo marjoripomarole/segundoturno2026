@@ -1,0 +1,512 @@
+<title>Fiel da Balança</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: coluna de leitura de ~68ch; gráficos e tabelas podem ir até 960px. Detalhe do assunto: números de urna como etiquetas, à maneira do boletim de urna. */
+:root{
+  --bg:#f3f5f4; --surface:#fcfcfb; --ink:#111513; --ink-2:#464d49; --muted:#737a76;
+  --rule:#dbe0dd; --axis:#c3c9c5; --accent:#0a6a5c; --accent-wash:#e2efec;
+  --s-flavio:#2a78d6; --s-lula:#eb6834; --s-cury:#1baf7a; --s-renan:#eda100; --s-caiado:#e87ba4; --s-zema:#4a3aa7;
+  --s-bn:#a9aeab; --s-bn-2:#d3d7d4;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-data:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-ui:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1110; --surface:#161a18; --ink:#eef1ef; --ink-2:#bdc4c0; --muted:#8a918d;
+  --rule:#29302d; --axis:#3a423e; --accent:#54c4ae; --accent-wash:#16302b;
+  --s-flavio:#3987e5; --s-lula:#d95926; --s-cury:#199e70; --s-renan:#c98500; --s-caiado:#d55181; --s-zema:#9085e9;
+  --s-bn:#6b716e; --s-bn-2:#454b48; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1110; --surface:#161a18; --ink:#eef1ef; --ink-2:#bdc4c0; --muted:#8a918d;
+  --rule:#29302d; --axis:#3a423e; --accent:#54c4ae; --accent-wash:#16302b;
+  --s-flavio:#3987e5; --s-lula:#d95926; --s-cury:#199e70; --s-renan:#c98500; --s-caiado:#d55181; --s-zema:#9085e9;
+  --s-bn:#6b716e; --s-bn-2:#454b48; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;padding:0 16px}
+.wrap{max-width:960px;margin:0 auto;padding-block:40px 64px}
+.read{max-width:68ch}
+h1,h2,h3{font-family:var(--f-display);font-stretch:82%;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(44px,8vw,76px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(26px,4vw,34px);font-weight:750;margin-top:8px}
+h3{font-size:19px;font-weight:700;font-stretch:90%}
+p{margin:0}
+.flow>*+*{margin-top:14px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.eyebrow{font-family:var(--f-data);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dek{font-size:20px;line-height:1.45;color:var(--ink-2);max-width:60ch}
+.mono{font-family:var(--f-data)}
+.num{font-variant-numeric:tabular-nums}
+.small{font-size:14.5px;color:var(--ink-2)}
+.note{font-family:var(--f-ui);font-size:13.5px;line-height:1.5;color:var(--muted)}
+header{display:grid;gap:18px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+section{padding-block:44px;border-bottom:1px solid var(--rule);display:grid;gap:22px}
+section:last-of-type{border-bottom:0}
+.sec-n{font-family:var(--f-data);font-size:12.5px;color:var(--accent);letter-spacing:.06em}
+
+/* Etiqueta de número de urna */
+.urna{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-ui);font-size:.92em;white-space:nowrap}
+.urna b{font-family:var(--f-data);font-weight:500;font-size:.82em;padding:1px 5px;border:1px solid var(--axis);border-radius:3px;color:var(--ink-2);background:var(--surface)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+
+/* Números-chave */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.tile{background:var(--surface);padding:18px 18px 16px;display:grid;gap:6px;align-content:start}
+.tile .v{font-family:var(--f-display);font-stretch:80%;font-weight:750;font-size:36px;line-height:1}
+.tile .l{font-family:var(--f-ui);font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.tile.key{background:var(--accent-wash)}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Gráficos de barras em HTML */
+.chart{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:14px;min-width:0}
+.chart-h{display:grid;gap:4px}
+.chart-h .t{font-family:var(--f-ui);font-weight:650;font-size:15px}
+.chart-h .s{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--f-ui);font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.hbars{display:grid;gap:8px;position:relative}
+.hrow{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:12px;align-items:center;font-family:var(--f-ui);font-size:14px}
+.hrow .lab{color:var(--ink-2);line-height:1.25}
+.track{position:relative;height:22px}
+.bar{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;min-width:2px}
+.bar-val{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--f-data);font-size:12.5px;color:var(--ink);white-space:nowrap;padding-left:6px}
+.refline{position:absolute;top:-6px;bottom:-6px;border-left:2px dashed var(--ink);pointer-events:none}
+.reflab{position:absolute;top:-24px;transform:translateX(-50%);font-family:var(--f-ui);font-size:12px;font-weight:650;white-space:nowrap;color:var(--ink);background:var(--surface);padding:0 4px}
+.hb-area{position:relative;padding-top:22px}
+.stack{display:flex;height:26px;gap:2px}
+.stack>div{height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--f-data);font-size:12px;color:#fff;min-width:0;overflow:hidden}
+.stack>div:first-child{border-radius:4px 0 0 4px}
+.stack>div:last-child{border-radius:0 4px 4px 0}
+.stack .lt{color:var(--ink)}
+.axis-x{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:12px}
+.axis-x .ticks{position:relative;height:16px;border-top:1px solid var(--axis)}
+.axis-x .ticks span{position:absolute;top:2px;transform:translateX(-50%);font-family:var(--f-data);font-size:11px;color:var(--muted)}
+.axis-x .ticks span:first-child{transform:none}
+.axis-x .ticks span:last-child{transform:translateX(-100%)}
+@media (max-width:560px){.hrow,.axis-x{grid-template-columns:minmax(0,1fr)}.hrow{gap:4px}.axis-x>div:first-child{display:none}}
+
+/* Colunas agrupadas */
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:end;height:220px;border-bottom:1px solid var(--axis);position:relative}
+.cgroup{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:100%}
+.col{width:min(26px,28%);border-radius:4px 4px 0 0;position:relative}
+.col span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-family:var(--f-data);font-size:11px;padding-bottom:3px;white-space:nowrap}
+.col-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font-family:var(--f-ui);font-size:13px;color:var(--ink-2);text-align:center;line-height:1.3}
+
+/* Tabelas */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-family:var(--f-ui);font-size:14px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap;font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:12.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;vertical-align:bottom}
+tbody tr:last-child td{border-bottom:0}
+td.hl{font-weight:650}
+tr.tot td{font-weight:650;background:var(--accent-wash)}
+.pos{display:grid;gap:0}
+.pos-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);font-family:var(--f-ui);font-size:14.5px;line-height:1.45}
+.pos-row:last-child{border-bottom:0}
+.pos-row .who{font-weight:650}
+.pos-row .when{font-family:var(--f-data);font-size:12px;color:var(--muted);display:block;margin-top:2px}
+@media (max-width:560px){.pos-row{grid-template-columns:minmax(0,1fr);gap:4px}}
+
+/* Pontos-chave */
+.findings{display:grid;gap:0;counter-reset:f}
+.finding{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--rule)}
+.finding::before{counter-increment:f;content:counter(f);font-family:var(--f-data);font-size:13px;color:var(--accent);padding-top:3px}
+.finding p{font-size:16.5px}
+
+/* Simulador */
+.sim{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:20px;display:grid;gap:22px}
+.sim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px}
+@media (max-width:700px){.sim-grid{grid-template-columns:minmax(0,1fr)}}
+.ctl{display:grid;gap:6px;font-family:var(--f-ui);font-size:14px}
+.ctl .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.ctl output{font-family:var(--f-data);font-size:13px;color:var(--ink)}
+.ctl input[type=range]{width:100%;accent-color:var(--accent)}
+.grp{display:grid;gap:12px;padding:14px;border:1px solid var(--rule);border-radius:6px}
+.grp h3{font-family:var(--f-ui);font-stretch:100%;font-size:14px;font-weight:650}
+.grp .note{margin-top:-6px}
+.result{display:grid;gap:10px}
+.result .big{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-family:var(--f-display);font-stretch:80%;font-weight:750;font-size:30px;line-height:1}
+.result .big small{display:block;font-family:var(--f-ui);font-size:12.5px;font-weight:500;color:var(--muted);margin-top:4px;font-stretch:100%}
+.result .stack{height:30px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button{font-family:var(--f-ui);font-size:13.5px;padding:7px 12px;border-radius:5px;border:1px solid var(--axis);background:var(--bg);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--accent)}
+.callout{border-left:3px solid var(--accent);padding:4px 0 4px 16px}
+.quote{font-size:19px;line-height:1.45;font-style:italic;color:var(--ink)}
+.src li{margin-bottom:6px;font-family:var(--f-ui);font-size:14px;line-height:1.45}
+.src{padding-left:20px;margin:0}
+#tip{position:fixed;z-index:10;pointer-events:none;background:var(--ink);color:var(--bg);font-family:var(--f-ui);font-size:12.5px;line-height:1.35;padding:6px 9px;border-radius:4px;max-width:260px;opacity:0;transition:opacity .08s}
+#tip.on{opacity:1}
+@media (prefers-reduced-motion:reduce){#tip{transition:none}}
+footer{padding-top:28px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Nota técnica · 11 out 2026 · dados do TSE e pesquisas registradas</div>
+  <h1>Fiel da Balança</h1>
+  <p class="dek">Quem são, onde estão e para onde tendem os eleitores que podem decidir o 2º turno de 25 de outubro entre <span class="urna"><span class="sw" style="background:var(--s-flavio)"></span>Flávio Bolsonaro <b>22</b></span> e <span class="urna"><span class="sw" style="background:var(--s-lula)"></span>Lula <b>13</b></span>.</p>
+  <p class="note">Leitura de cerca de 10 minutos. Os números do 1º turno foram somados a partir dos arquivos do TSE por município e zona; as pesquisas citadas foram registradas no TSE. O método e os limites estão no fim da página.</p>
+</header>
+
+<section aria-labelledby="s1">
+  <div class="sec-n">01 · A conta do 1º turno</div>
+  <h2 id="s1">A diferença entre os dois é menor do que cada um dos principais grupos em disputa</h2>
+  <div class="tiles" role="list">
+    <div class="tile key" role="listitem"><div class="v num">2,22 mi</div><div class="l">votos de vantagem de Flávio sobre Lula no 1º turno (47,03% a 45,16% dos válidos)</div></div>
+    <div class="tile" role="listitem"><div class="v num">9,06 mi</div><div class="l">votos de Cury, Renan Santos, Caiado e Zema somados (7,6% dos válidos)</div></div>
+    <div class="tile" role="listitem"><div class="v num">5,98 mi</div><div class="l">votos brancos (2,30 mi) e nulos (3,67 mi)</div></div>
+    <div class="tile" role="listitem"><div class="v num">33,5 mi</div><div class="l">eleitores que não foram votar: 21,08% dos aptos, a maior abstenção já registrada</div></div>
+  </div>
+
+  <div class="chart" id="c-pools">
+    <div class="chart-h">
+      <div class="t">Votos em jogo no 1º turno, comparados à diferença entre os dois primeiros</div>
+      <div class="s">Milhões de votos · a linha tracejada marca a vantagem de 2,22 milhões · abstenção (33,5 mi) fora da escala</div>
+    </div>
+    <div class="hb-area"><div class="hbars" id="pools"></div></div>
+    <div class="axis-x"><div></div><div class="ticks" id="pools-axis"></div></div>
+  </div>
+
+  <div class="read flow">
+    <p>Cinco desses blocos (nulos, Cury, Renan, Caiado e brancos) são, cada um sozinho, maiores que a diferença entre Flávio e Lula. A abstenção é quinze vezes maior. Por isso o 2º turno depende menos de quem já votou em um dos dois e mais de três movimentos: para onde vão os eleitores dos candidatos eliminados, quem volta a votar e quem troca de lado.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s2">
+  <div class="sec-n">02 · Os eliminados</div>
+  <h2 id="s2">Os eleitores de Cury, Renan e Caiado tendem a Flávio, mas não em bloco</h2>
+
+  <div class="chart" id="c-trans">
+    <div class="chart-h">
+      <div class="t">Intenção de voto no 2º turno de quem votou nos eliminados</div>
+      <div class="s">% dos eleitores de cada grupo · pesquisas de 5 a 7 de outubro</div>
+    </div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s-flavio)"></i>Flávio</span>
+      <span><i class="sw" style="background:var(--s-lula)"></i>Lula</span>
+      <span><i class="sw" style="background:var(--s-bn)"></i>Branco ou nulo</span>
+      <span><i class="sw" style="background:var(--s-bn-2)"></i>Indeciso ou não informado</span>
+    </div>
+    <div class="hbars" id="trans"></div>
+    <p class="note">Fontes: PoderData/Aya, 5 a 7/10, 3.000 entrevistas por telefone, margem geral de 1,8 ponto. Datafolha, 6 e 7/10, 2.520 entrevistas, margem geral de 2 pontos. No PoderData, os números de Renan somam 101% por arredondamento.</p>
+  </div>
+
+  <div class="callout read flow">
+    <p><strong>Atenção ao tamanho das subamostras.</strong> Eleitores de Cury ou de Renan são cerca de 2% a 3% de quem votou. Numa pesquisa de 3.000 pessoas, isso dá algo como 60 a 90 entrevistados por grupo, com margem de erro aproximada de 10 a 13 pontos. Os números indicam uma tendência; diferenças de poucos pontos entre os grupos não são confiáveis.</p>
+  </div>
+
+  <div class="read flow">
+    <h3>O que os candidatos eliminados disseram</h3>
+  </div>
+  <div class="pos read" role="list">
+    <div class="pos-row" role="listitem"><div class="who"><span class="urna"><span class="sw" style="background:var(--s-cury)"></span>Augusto Cury <b>70</b></span><span class="when">2,89% · 3,45 mi</span></div><div>Anunciou apoio a Flávio em 8/10, depois de dias dizendo que não apoiaria nenhum dos dois. Condicionou o apoio a oito compromissos, entre eles o fim da reeleição presidencial e prioridade ao combate à violência contra a mulher. Disse que o apoio "não é cheque em branco" e que não terá cargo.</div></div>
+    <div class="pos-row" role="listitem"><div class="who"><span class="urna"><span class="sw" style="background:var(--s-renan)"></span>Renan Santos <b>14</b></span><span class="when">2,24% · 2,68 mi</span></div><div>Não apoia ninguém e não defende voto nulo. Deixou os eleitores livres e chamou os dois finalistas de criminosos. É o grupo com a maior intenção de branco ou nulo (27%).</div></div>
+    <div class="pos-row" role="listitem"><div class="who"><span class="urna"><span class="sw" style="background:var(--s-caiado)"></span>Ronaldo Caiado <b>55</b></span><span class="when">2,18% · 2,61 mi</span></div><div>Anunciou apoio a Flávio em 6/10, em Goiânia. O PSD, partido dele, liberou os diretórios estaduais para apoiar quem quiserem.</div></div>
+    <div class="pos-row" role="listitem"><div class="who"><span class="urna"><span class="sw" style="background:var(--s-zema)"></span>Romeu Zema <b>30</b></span><span class="when">0,27% · 0,33 mi</span></div><div>Declarou apoio a Flávio em 5/10. O Novo oficializou o apoio.</div></div>
+  </div>
+
+  <div class="read flow">
+    <h3>Os eleitores de Cury que sobraram são o núcleo</h3>
+    <p>No fim de agosto e começo de setembro, pesquisas davam a Cury entre 7% e 11% das intenções de voto. Ele terminou com 2,89% dos válidos. Ou seja, a maior parte de quem chegou a declarar voto nele mudou de ideia antes do 1º turno. Os 3,4 milhões que ficaram mantiveram o voto mesmo com as pesquisas indicando que ele não chegaria ao 2º turno. É razoável supor que sejam os mais ligados à proposta dele, e não a um dos dois finalistas.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s3">
+  <div class="sec-n">03 · Onde eles estão</div>
+  <h2 id="s3">Metade desses eleitores está no Sudeste, e quase um terço dos de Renan só em São Paulo</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <caption class="note" style="caption-side:bottom;text-align:left;padding:10px 12px">Fonte: TSE, votação por município e zona, 1º turno de 2026. Cálculo próprio. Exterior omitido (0,3% de cada candidato).</caption>
+      <thead><tr><th>Região</th><th>Flávio</th><th>Lula</th><th>Parte dos votos de Cury</th><th>Parte dos votos de Renan</th><th>Parte dos votos de Caiado</th></tr></thead>
+      <tbody>
+        <tr><td>Sudeste</td><td>51,4%</td><td>39,7%</td><td class="hl">46,8%</td><td class="hl">49,2%</td><td class="hl">40,3%</td></tr>
+        <tr><td>Nordeste</td><td>30,9%</td><td>63,8%</td><td>23,7%</td><td>19,8%</td><td>15,0%</td></tr>
+        <tr><td>Sul</td><td>60,1%</td><td>31,3%</td><td>15,5%</td><td>17,9%</td><td>15,7%</td></tr>
+        <tr><td>Centro-Oeste</td><td>56,5%</td><td>32,6%</td><td>5,2%</td><td>6,2%</td><td class="hl">23,5%</td></tr>
+        <tr><td>Norte</td><td>49,2%</td><td>44,7%</td><td>8,5%</td><td>6,6%</td><td>5,3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Flávio e Lula: % dos válidos na região. As outras colunas mostram como os votos de cada candidato se distribuem entre as regiões (cada coluna soma cerca de 100%).</p>
+
+  <div class="read flow">
+    <p><strong>São Paulo</strong> concentra 30,1% dos votos de Renan, 25,9% dos de Cury e 22,2% dos de Caiado. <strong>Goiás</strong> sozinho tem 18,1% dos votos de Caiado, que fez 12,3% no estado. Fora de Goiás e do Distrito Federal, Caiado não passou de 2,6% em nenhuma unidade da federação.</p>
+  </div>
+
+  <div class="chart" id="c-size">
+    <div class="chart-h">
+      <div class="t">Votação de Cury, Renan e Caiado por tamanho do município</div>
+      <div class="s">% dos votos válidos · municípios agrupados pelo número de eleitores aptos</div>
+    </div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s-cury)"></i>Cury</span>
+      <span><i class="sw" style="background:var(--s-renan)"></i>Renan</span>
+      <span><i class="sw" style="background:var(--s-caiado)"></i>Caiado</span>
+    </div>
+    <div class="cols" id="sizecols"></div>
+    <div class="col-labels"><div>Até 20 mil eleitores<br><span class="note">4.212 municípios</span></div><div>20 a 100 mil<br><span class="note">1.138</span></div><div>100 a 500 mil<br><span class="note">192</span></div><div>Mais de 500 mil<br><span class="note">29</span></div></div>
+  </div>
+  <div class="read flow">
+    <p>Os três foram mais votados nas cidades médias e grandes. Renan é o caso mais forte: 62% dos votos dele vieram de municípios com mais de 100 mil eleitores, que reúnem cerca de metade do eleitorado.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s4">
+  <div class="sec-n">04 · Quem não votou</div>
+  <h2 id="s4">A abstenção foi maior no Sudeste e menor no Nordeste</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Região</th><th>Não votaram</th><th>% dos aptos</th><th>Brancos + nulos</th><th>Venceu no 1º turno</th></tr></thead>
+      <tbody>
+        <tr><td>Sudeste</td><td>15,06 mi</td><td class="hl">22,7%</td><td>2,80 mi</td><td>Flávio, por 11,7 pontos</td></tr>
+        <tr><td>Nordeste</td><td>8,00 mi</td><td class="hl">18,4%</td><td>1,80 mi</td><td>Lula, por 32,9 pontos</td></tr>
+        <tr><td>Sul</td><td>4,68 mi</td><td>20,5%</td><td>0,68 mi</td><td>Flávio, por 28,8 pontos</td></tr>
+        <tr><td>Centro-Oeste</td><td>2,60 mi</td><td>21,7%</td><td>0,31 mi</td><td>Flávio, por 23,9 pontos</td></tr>
+        <tr><td>Norte</td><td>2,55 mi</td><td>19,4%</td><td>0,36 mi</td><td>Flávio, por 4,5 pontos</td></tr>
+        <tr><td>Exterior</td><td>0,57 mi</td><td>62,7%</td><td>0,01 mi</td><td>Lula, por 4,1 pontos</td></tr>
+        <tr class="tot"><td>Brasil</td><td>33,47 mi</td><td>21,08%</td><td>5,98 mi</td><td>Flávio, por 1,9 ponto</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="read flow">
+    <p>No Nordeste, onde Lula teve quase dois terços dos válidos, a participação já foi a mais alta do país. Ainda assim, 8 milhões de nordestinos não votaram. No Sudeste, o maior colégio eleitoral, ficaram em casa 15 milhões, quase metade de toda a abstenção do país. Quem conseguir trazer de volta uma fatia pequena desse grupo move mais votos do que qualquer apoio de candidato eliminado.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s5">
+  <div class="sec-n">05 · O retrato das pesquisas</div>
+  <h2 id="s5">Três pesquisas de 2º turno divulgadas nesta semana dão Flávio à frente, com 52% a 53% dos válidos</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Instituto</th><th>Campo</th><th>Entrevistas</th><th>Margem</th><th>Flávio</th><th>Lula</th></tr></thead>
+      <tbody>
+        <tr><td>Datafolha</td><td>6–7/10</td><td>2.520</td><td>±2 p.p.</td><td class="hl">52%</td><td>48%</td></tr>
+        <tr><td>PoderData/Aya</td><td>5–7/10</td><td>3.000 por telefone</td><td>±1,8 p.p.</td><td class="hl">53%</td><td>47%</td></tr>
+        <tr><td>AtlasIntel</td><td>3–8/10</td><td>5.026 on-line</td><td>±1 p.p.</td><td class="hl">52,8%</td><td>47,2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Votos válidos (sem brancos, nulos e indecisos). Nos votos totais do Datafolha: Flávio 49%, Lula 45%, branco/nulo 5%, indeciso 1%.</p>
+
+  <div class="chart" id="c-seg">
+    <div class="chart-h">
+      <div class="t">Onde cada um lidera, segundo o Datafolha</div>
+      <div class="s">% das intenções de voto no 2º turno por segmento · 6 e 7 de outubro · margem maior que a geral em cada segmento</div>
+    </div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s-flavio)"></i>Flávio</span>
+      <span><i class="sw" style="background:var(--s-lula)"></i>Lula</span>
+    </div>
+    <div class="hbars" id="seg"></div>
+    <div class="axis-x"><div></div><div class="ticks" id="seg-axis"></div></div>
+  </div>
+
+  <div class="read flow">
+    <p>O mesmo levantamento traz dois dados sobre o espaço para mudança. <strong>94% dizem estar totalmente decididos</strong>. E <strong>25% dizem que o voto em Flávio é, antes de tudo, para derrotar Lula</strong>; a reportagem não deixa claro se a base são todos os entrevistados ou só os eleitores de Flávio. Estudos sobre antipetismo e antibolsonarismo mostram que, nas eleições recentes, muita gente escolhe menos por afinidade e mais por rejeição ao outro lado.</p>
+  </div>
+</section>
+
+<section aria-labelledby="s6">
+  <div class="sec-n">06 · Simulador</div>
+  <h2 id="s6">Monte o seu cenário</h2>
+  <div class="read flow">
+    <p>Um exercício de aritmética, não uma previsão. Parte do 1º turno e supõe que quem votou em Flávio ou em Lula volta a votar nele, a não ser que você mova os controles de troca de lado. Comece pelos números do Datafolha e veja o tamanho de cada alavanca.</p>
+  </div>
+  <div class="sim">
+    <div class="btns">
+      <button type="button" id="p-df">Usar pesquisa Datafolha</button>
+      <button type="button" id="p-zero">Zerar tudo</button>
+    </div>
+    <div class="sim-grid">
+      <div class="grp">
+        <h3>Eleitores de Cury, Renan, Caiado e Zema · 9,06 mi</h3>
+        <div class="ctl"><div class="row"><label for="e-f">Vão para Flávio</label><output id="o-e-f" for="e-f"></output></div><input type="range" id="e-f" min="0" max="100" step="1" value="46"></div>
+        <div class="ctl"><div class="row"><label for="e-l">Vão para Lula</label><output id="o-e-l" for="e-l"></output></div><input type="range" id="e-l" min="0" max="100" step="1" value="32"></div>
+        <p class="note">O restante vota branco, nulo ou não vota. Se a soma passar de 100%, o simulador reduz o outro controle.</p>
+      </div>
+      <div class="grp">
+        <h3>Quem não votou no 1º turno · 33,5 mi</h3>
+        <div class="ctl"><div class="row"><label for="a-t">Passam a votar</label><output id="o-a-t" for="a-t"></output></div><input type="range" id="a-t" min="0" max="20" step="0.5" value="0"></div>
+        <div class="ctl"><div class="row"><label for="a-f">Desses, escolhem Flávio</label><output id="o-a-f" for="a-f"></output></div><input type="range" id="a-f" min="0" max="100" step="1" value="50"></div>
+        <p class="note">O restante dos novos votantes escolhe Lula.</p>
+      </div>
+      <div class="grp">
+        <h3>Brancos e nulos do 1º turno · 5,98 mi</h3>
+        <div class="ctl"><div class="row"><label for="b-v">Passam a escolher um candidato</label><output id="o-b-v" for="b-v"></output></div><input type="range" id="b-v" min="0" max="50" step="1" value="0"></div>
+        <div class="ctl"><div class="row"><label for="b-f">Desses, escolhem Flávio</label><output id="o-b-f" for="b-f"></output></div><input type="range" id="b-f" min="0" max="100" step="1" value="50"></div>
+      </div>
+      <div class="grp">
+        <h3>Troca de lado</h3>
+        <div class="ctl"><div class="row"><label for="s-lf">Eleitores de Lula que vão para Flávio</label><output id="o-s-lf" for="s-lf"></output></div><input type="range" id="s-lf" min="0" max="5" step="0.1" value="0"></div>
+        <div class="ctl"><div class="row"><label for="s-fl">Eleitores de Flávio que vão para Lula</label><output id="o-s-fl" for="s-fl"></output></div><input type="range" id="s-fl" min="0" max="5" step="0.1" value="0"></div>
+        <p class="note">Cada 1% de troca equivale a cerca de 550 mil votos.</p>
+      </div>
+    </div>
+    <div class="result" aria-live="polite">
+      <div class="big"><div><span id="r-f"></span><small>Flávio · votos válidos</small></div><div style="text-align:right"><span id="r-l"></span><small>Lula · votos válidos</small></div></div>
+      <div class="stack" id="r-bar"></div>
+      <p class="small" id="r-txt"></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="s7">
+  <div class="sec-n">07 · O que dizem as entrevistas de rua</div>
+  <h2 id="s7">Os vídeos mostram argumentos, não proporções</h2>
+  <div class="read flow">
+    <p>Analisamos, como piloto, quatro conteúdos de Instagram que circularam entre agosto e outubro, com três eleitores entrevistados. A análise completa está no arquivo de trabalho do projeto. Três observações:</p>
+  </div>
+  <div class="findings read">
+    <div class="finding"><p><strong>A direita que rejeita Bolsonaro existe e separa a pessoa do campo.</strong> Um eleitor de 80 e poucos anos, que se diz de centro-direita, liberal e a favor de privatizações, resume assim:</p></div>
+  </div>
+  <blockquote class="read callout" style="margin:0"><p class="quote">"O Bolsonaro pra mim não é a direita. É ele e a família dele."</p><p class="note" style="margin-top:6px">Entrevistado em vídeo original de @willzanelati, repostado em 6/10/2026.</p></blockquote>
+  <div class="findings read" style="counter-reset:f 1">
+    <div class="finding"><p><strong>Quem publica muda o sentido.</strong> No repost, feito por um político do PT, a legenda fala em "soberania" e em "Vamos juntos @lulaoficial". O entrevistado não disse nenhuma das duas coisas nem declarou voto no 2º turno. Em outro vídeo, o autor era candidato a deputado e exibia o número de urna durante toda a entrevista.</p></div>
+    <div class="finding"><p><strong>A amostra que circula é desequilibrada.</strong> Os quatro conteúdos vieram de perfis com a mesma inclinação. Pesquisas sobre o formato mostram que entrevistas de rua tendem a mostrar um lado só, raramente avisam que não representam a população e mesmo assim pesam mais na percepção do público do que pesquisas por amostragem. Para entender os grupos acima, vídeos servem para ouvir os argumentos; os números vêm das seções 01 a 05.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s8">
+  <div class="sec-n">08 · Síntese</div>
+  <h2 id="s8">Sete pontos para levar</h2>
+  <div class="findings read">
+    <div class="finding"><p>A vantagem de Flávio no 1º turno foi de <strong>2,22 milhões de votos</strong>. Nas três pesquisas de outubro, ela aumenta: 52% a 53% dos válidos.</p></div>
+    <div class="finding"><p>Os eleitores dos eliminados <strong>tendem a Flávio</strong> (Datafolha: 46% a 32%, com 15% de branco ou nulo). Se isso se confirmar, Flávio ganha cerca de <strong>1,3 milhão</strong> de votos líquidos só com esse grupo.</p></div>
+    <div class="finding"><p>Dentro desse grupo há diferenças. Os <strong>eleitores de Renan</strong> são os menos transferíveis: 27% falam em branco ou nulo, e o candidato não apoia ninguém. Os de <strong>Cury</strong> são os mais abertos a Flávio, e o apoio de Cury veio com condições públicas.</p></div>
+    <div class="finding"><p>Esses eleitores estão concentrados no <strong>Sudeste e nas cidades médias e grandes</strong>. Só São Paulo tem 30% dos votos de Renan e 26% dos de Cury. Os de Caiado estão em Goiás e no Distrito Federal.</p></div>
+    <div class="finding"><p>A maior reserva é a <strong>abstenção</strong>: 33,5 milhões, recorde. Cada 1% desse grupo que volta a votar são 335 mil votos. A abstenção é maior no Sudeste (22,7%) e menor no Nordeste (18,4%).</p></div>
+    <div class="finding"><p>O espaço para convencer quem já escolheu é pequeno: <strong>94% dizem estar totalmente decididos</strong>. Ainda assim, cada 1% de troca entre os dois eleitorados move cerca de 550 mil votos, e a diferença entre eles muda o dobro disso.</p></div>
+    <div class="finding"><p>As subamostras de eleitores de Cury e Renan são pequenas, com margem em torno de <strong>10 a 13 pontos</strong>. Use os números como tendência e não compare diferenças pequenas entre grupos.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="s9">
+  <div class="sec-n">09 · Método e limites</div>
+  <h2 id="s9">Como os números foram produzidos</h2>
+  <div class="read flow small">
+    <p><strong>Resultados do 1º turno.</strong> Arquivos <span class="mono">votacao_candidato_munzona_2026</span> e <span class="mono">detalhe_votacao_munzona_2026</span> do Portal de Dados Abertos do TSE, baixados em 11/10/2026. Somamos os votos para presidente por município e zona. Os totais conferem com a totalização oficial: Flávio 56.104.503, Lula 53.879.538, abstenção 33.469.244. A tabela por estado está em <span class="mono">dados/primeiro_turno_presidente_por_uf.csv</span>.</p>
+    <p><strong>Tamanho de município.</strong> Os municípios foram agrupados pelo número de eleitores aptos no próprio arquivo do TSE. Esta é uma análise agregada: mostra onde os votos estão, não quem é cada eleitor.</p>
+    <p><strong>Pesquisas.</strong> Usamos apenas números de outubro de 2026 publicados por veículos com ficha técnica (instituto, campo, amostra, margem). Recortes que só apareceram em resumos sem fonte primária ficaram de fora. A margem das subamostras foi estimada por nós a partir da participação de cada grupo no eleitorado.</p>
+    <p><strong>Simulador.</strong> Aritmética sobre os votos do 1º turno. Não considera mudança no comparecimento de quem já votou em Flávio ou Lula, nem a diferença entre a amostra das pesquisas e o eleitorado que de fato vota.</p>
+    <p><strong>Entrevistas de rua.</strong> Piloto qualitativo com quatro conteúdos enviados espontaneamente. Não é uma amostra e não permite generalizar.</p>
+    <p><strong>Neutralidade.</strong> As cores dos candidatos seguem a ordem do 1º turno e não as cores dos partidos. O mesmo critério foi aplicado aos dois lados. Coleta, processamento e redação foram feitos com apoio de ferramentas de IA, com conferência dos totais contra a fonte oficial.</p>
+  </div>
+  <div class="read flow">
+    <h3>Fontes</h3>
+    <ul class="src">
+      <li><a href="https://dadosabertos.tse.jus.br/dataset/resultados-2026" target="_blank" rel="noopener">TSE: Portal de Dados Abertos, resultados 2026</a></li>
+      <li><a href="https://www.cartacapital.com.br/politica/tse-encerra-apuracao-do-1o-turno/" target="_blank" rel="noopener">CartaCapital: TSE encerra apuração do 1º turno</a></li>
+      <li><a href="https://www.cnnbrasil.com.br/eleicoes/datafolha-flavio-tem-52-dos-votos-validos-lula-48/" target="_blank" rel="noopener">CNN Brasil: Datafolha, Flávio tem 52% dos votos válidos; Lula, 48%</a></li>
+      <li><a href="https://tribunadejundiai.com.br/politica/eleicoes-2026/saiba-para-onde-irao-os-votos-de-renan-e-cury-segundo-pesquisa/" target="_blank" rel="noopener">Tribuna de Jundiaí: para onde irão os votos de Renan e Cury (PoderData/Aya)</a></li>
+      <li><a href="https://forbes.com.br/geral/2026/10/flavio-tem-511-e-lula-457-das-intencoes-de-voto-no-2o-turno-mostra-atlas/" target="_blank" rel="noopener">Forbes Brasil: AtlasIntel, 2º turno</a></li>
+      <li><a href="https://sbtnews.sbt.com.br/noticia/eleicoes/cury-apoia-flavio-e-alerta-nao-e-cheque-em-branco" target="_blank" rel="noopener">SBT News: Cury apoia Flávio, "não é cheque em branco"</a></li>
+      <li><a href="https://istoe.com.br/caiado-apoia-flavio-bolsonaro-segundo-turno" target="_blank" rel="noopener">IstoÉ: Caiado anuncia apoio a Flávio Bolsonaro</a></li>
+      <li><a href="https://www.diariodepernambuco.com.br/politica/2026/10/11725891-renan-santos-descarta-apoio-no-2-turno-psd-de-caiado-libera-bases-estaduais.html" target="_blank" rel="noopener">Diario de Pernambuco: Renan descarta apoio; PSD libera bases</a></li>
+      <li><a href="https://diariodonordeste.verdesmares.com.br/pontopoder/romeu-zema-declara-apoio-a-flavio-bolsonaro-no-2-turno-das-eleicoes-2026-1.3796722" target="_blank" rel="noopener">Diário do Nordeste: Zema declara apoio a Flávio</a></li>
+      <li><a href="https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/pesquisas-que-confirmam-avanco-augusto-cury/" target="_blank" rel="noopener">Gazeta do Povo: pesquisas de agosto e setembro com Cury entre 7% e 11%</a></li>
+      <li><a href="https://repository.uantwerpen.be/link/irua/133676" target="_blank" rel="noopener">Beckers et al.: Opinion balance in vox pop television news (Journalism Studies)</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="note">Nota técnica, versão de 11 de outubro de 2026. Os números podem ser reproduzidos a partir dos arquivos públicos do TSE citados acima.</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  var fmtM=function(v){return (v/1e6).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' mi';};
+  var pct=function(v,d){return v.toLocaleString('pt-BR',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})+'%';};
+
+  // Tooltip
+  var tip=document.getElementById('tip');
+  function showTip(e,el){tip.textContent=el.getAttribute('data-tip');tip.classList.add('on');moveTip(e,el);}
+  function moveTip(e,el){var x,y;if(e&&e.clientX!=null){x=e.clientX;y=e.clientY;}else{var r=el.getBoundingClientRect();x=r.left+r.width/2;y=r.top;}
+    var w=tip.offsetWidth,h=tip.offsetHeight;var nx=Math.min(Math.max(8,x+12),window.innerWidth-w-8);var ny=y-h-10;if(ny<8)ny=y+16;tip.style.left=nx+'px';tip.style.top=ny+'px';}
+  function hideTip(){tip.classList.remove('on');}
+  function bindTips(root){root.querySelectorAll('[data-tip]').forEach(function(el){
+    if(el.dataset.tb)return;el.dataset.tb='1';el.setAttribute('tabindex','0');
+    el.addEventListener('mouseenter',function(e){showTip(e,el);});el.addEventListener('mousemove',function(e){moveTip(e,el);});
+    el.addEventListener('mouseleave',hideTip);el.addEventListener('focus',function(){showTip(null,el);});el.addEventListener('blur',hideTip);});}
+
+  // 01: blocos de votos
+  var pools=[
+    ['Nulos',3674249,'var(--s-bn)'],['Augusto Cury',3448569,'var(--s-cury)'],['Renan Santos',2675887,'var(--s-renan)'],
+    ['Ronaldo Caiado',2605148,'var(--s-caiado)'],['Brancos',2300798,'var(--s-bn)'],['Romeu Zema',326488,'var(--s-zema)'],
+    ['Outros 6 candidatos',260655,'var(--s-bn-2)']];
+  var max=4e6,gap=2224965,el=document.getElementById('pools');
+  pools.forEach(function(p){var w=p[1]/max*100;
+    el.insertAdjacentHTML('beforeend','<div class="hrow"><div class="lab">'+p[0]+'</div><div class="track"><div class="bar" style="width:'+w+'%;background:'+p[2]+'" data-tip="'+p[0]+': '+p[1].toLocaleString('pt-BR')+' votos ('+(p[1]/gap*100).toFixed(0)+'% da diferença entre Flávio e Lula)"></div><span class="bar-val num" style="left:'+w+'%">'+fmtM(p[1])+'</span></div></div>');});
+  // linha de referência posicionada na coluna das barras
+  var area=document.querySelector('#c-pools .hb-area');
+  function placeRef(){var old=area.querySelectorAll('.refline,.reflab');old.forEach(function(n){n.remove();});
+    var tr=area.querySelector('.track');if(!tr)return;var ar=area.getBoundingClientRect(),r=tr.getBoundingClientRect();
+    var x=r.left-ar.left+r.width*gap/max;
+    area.insertAdjacentHTML('beforeend','<div class="refline" style="left:'+x+'px;top:16px"></div><div class="reflab" style="left:'+x+'px;top:-2px">Diferença: 2,22 mi</div>');}
+  placeRef();window.addEventListener('resize',placeRef);
+  var ax=document.getElementById('pools-axis');[0,1,2,3,4].forEach(function(t){ax.insertAdjacentHTML('beforeend','<span style="left:'+(t/4*100)+'%">'+t+(t?' mi':'')+'</span>');});
+
+  // 02: transferência
+  var trans=[
+    ['Eleitores de Cury',{f:56,l:27,b:11,i:6},'PoderData/Aya'],
+    ['Eleitores de Renan',{f:48,l:25,b:27,i:1},'PoderData/Aya'],
+    ['Cury, Renan, Caiado e Zema somados',{f:46,l:32,b:15,i:7},'Datafolha']];
+  var te=document.getElementById('trans');
+  trans.forEach(function(t){var v=t[1],s=v.f+v.l+v.b+v.i;
+    function seg(val,col,name,light){return '<div class="'+(light?'lt':'')+'" style="flex:'+val/s+' 1 0;background:'+col+'" data-tip="'+t[0]+' ('+t[2]+'): '+val+'% '+name+'">'+(val>=6?val+'%':'')+'</div>';}
+    te.insertAdjacentHTML('beforeend','<div class="hrow"><div class="lab">'+t[0]+'<br><span class="note">'+t[2]+'</span></div><div class="stack">'+
+      seg(v.f,'var(--s-flavio)','Flávio')+seg(v.l,'var(--s-lula)','Lula')+seg(v.b,'var(--s-bn)','branco ou nulo',true)+seg(v.i,'var(--s-bn-2)','indeciso ou não informado',true)+'</div></div>');});
+
+  // 03: tamanho de município
+  var sizes=[[2.29,1.40,1.85],[2.65,1.90,1.94],[3.27,2.69,2.24],[3.30,2.90,2.69]];
+  var names=['Cury','Renan','Caiado'],cols=['var(--s-cury)','var(--s-renan)','var(--s-caiado)'],grp=['até 20 mil eleitores','20 a 100 mil','100 a 500 mil','mais de 500 mil'];
+  var sc=document.getElementById('sizecols');
+  sizes.forEach(function(g,gi){var h='<div class="cgroup">';g.forEach(function(v,i){h+='<div class="col" style="height:'+(v/4*100)+'%;background:'+cols[i]+'" data-tip="'+names[i]+' em municípios com '+grp[gi]+': '+pct(v,2)+' dos válidos"><span>'+v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'</span></div>';});sc.insertAdjacentHTML('beforeend',h+'</div>');});
+
+  // 05: segmentos
+  var seg=[['Nordeste',35,61],['Sul',58,35],['Evangélicos',69,25],['Católicos',41,53],['Ensino fundamental',41,55],['Renda até 2 salários mínimos',41,52]];
+  var se=document.getElementById('seg');
+  seg.forEach(function(s){
+    se.insertAdjacentHTML('beforeend','<div class="hrow"><div class="lab">'+s[0]+'</div><div style="display:grid;gap:2px">'+
+      '<div class="track" style="height:14px"><div class="bar" style="width:'+(s[1])+'%;background:var(--s-flavio)" data-tip="'+s[0]+': Flávio '+s[1]+'%"></div><span class="bar-val num" style="left:'+s[1]+'%;font-size:11.5px">'+s[1]+'%</span></div>'+
+      '<div class="track" style="height:14px"><div class="bar" style="width:'+(s[2])+'%;background:var(--s-lula)" data-tip="'+s[0]+': Lula '+s[2]+'%"></div><span class="bar-val num" style="left:'+s[2]+'%;font-size:11.5px">'+s[2]+'%</span></div></div></div>');});
+  var sa=document.getElementById('seg-axis');[0,25,50,75,100].forEach(function(t){sa.insertAdjacentHTML('beforeend','<span style="left:'+t+'%">'+t+'%</span>');});
+
+  // 06: simulador
+  var F0=56104503,L0=53879538,E=9056092,AB=33469244,BN=5975047;
+  var ids=['e-f','e-l','a-t','a-f','b-v','b-f','s-lf','s-fl'];
+  var $=function(id){return document.getElementById(id);};
+  function out(id,txt){$('o-'+id).textContent=txt;}
+  function calc(src){
+    var ef=+$('e-f').value,el2=+$('e-l').value;
+    if(ef+el2>100){if(src==='e-f'){el2=100-ef;$('e-l').value=el2;}else{ef=100-el2;$('e-f').value=ef;}}
+    var at=+$('a-t').value/100,af=+$('a-f').value/100,bv=+$('b-v').value/100,bf=+$('b-f').value/100,lf=+$('s-lf').value/100,fl=+$('s-fl').value/100;
+    out('e-f',ef+'% · '+fmtM(E*ef/100));out('e-l',el2+'% · '+fmtM(E*el2/100));
+    out('a-t',pct(at*100,1)+' · '+fmtM(AB*at));out('a-f',Math.round(af*100)+'%');
+    out('b-v',Math.round(bv*100)+'% · '+fmtM(BN*bv));out('b-f',Math.round(bf*100)+'%');
+    out('s-lf',pct(lf*100,1)+' · '+fmtM(L0*lf));out('s-fl',pct(fl*100,1)+' · '+fmtM(F0*fl));
+    var F=F0*(1-fl)+L0*lf+E*ef/100+AB*at*af+BN*bv*bf;
+    var L=L0*(1-lf)+F0*fl+E*el2/100+AB*at*(1-af)+BN*bv*(1-bf);
+    var pf=F/(F+L)*100,pl=100-pf;
+    $('r-f').textContent=pct(pf,1);$('r-l').textContent=pct(pl,1);
+    $('r-bar').innerHTML='<div style="flex:'+pf+' 1 0;background:var(--s-flavio)" data-tip="Flávio: '+Math.round(F).toLocaleString('pt-BR')+' votos">'+pct(pf,1)+'</div><div style="flex:'+pl+' 1 0;background:var(--s-lula)" data-tip="Lula: '+Math.round(L).toLocaleString('pt-BR')+' votos">'+pct(pl,1)+'</div>';
+    bindTips($('r-bar'));
+    var d=F-L,who=d>0?'Flávio':'Lula';
+    $('r-txt').textContent=Math.abs(d)<1000?'Empate técnico na aritmética: diferença menor que mil votos.':who+' termina com '+fmtM(Math.abs(d))+' de vantagem nesse cenário ('+Math.round(F).toLocaleString('pt-BR')+' a '+Math.round(L).toLocaleString('pt-BR')+' votos).';
+  }
+  ids.forEach(function(id){$(id).addEventListener('input',function(){calc(id);});});
+  function setv(o){Object.keys(o).forEach(function(k){$(k).value=o[k];});calc();}
+  $('p-df').addEventListener('click',function(){setv({'e-f':46,'e-l':32,'a-t':0,'a-f':50,'b-v':0,'b-f':50,'s-lf':0,'s-fl':0});});
+  $('p-zero').addEventListener('click',function(){setv({'e-f':0,'e-l':0,'a-t':0,'a-f':50,'b-v':0,'b-f':50,'s-lf':0,'s-fl':0});});
+  calc();
+  bindTips(document);
+})();
+</script>
