@@ -27,6 +27,7 @@ O projeto inclui também uma nota técnica com dados oficiais do TSE e pesquisas
 | [protocolo-pesquisa-cientifica.md](protocolo-pesquisa-cientifica.md) | Desenho para a versão científica e plano de expansão por sementes |
 | [fiel-da-balanca.html](fiel-da-balanca.html) | Nota técnica "Fiel da Balança" (TSE, pesquisas e simulador) |
 | [dados/corpus.csv](dados/corpus.csv) | Os 98 conteúdos: link, perfil, data, lote, grupo, alcance, legenda |
+| [dados/reacoes_contraevidencia.csv](dados/reacoes_contraevidencia.csv) | Os 55 confrontos com informação contrária e a reação de cada entrevistado (RQ3, conteúdos 1 a 91) |
 | [dados/coleta/](dados/coleta/) | Listas de coleta: sementes, buscas, triagem e vídeos compartilhados pelo colaborador |
 | [dados/primeiro_turno_presidente_por_uf.csv](dados/primeiro_turno_presidente_por_uf.csv) | Resultado do 1º turno por UF (TSE) |
 | [scripts/](scripts/) | Download, transcrição, triagem e agregação do TSE |
