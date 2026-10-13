@@ -23,26 +23,28 @@ O projeto inclui também uma nota técnica com dados oficiais do TSE e pesquisas
 | Arquivo | Para quê |
 |---------|----------|
 | [relato-metodologico.md](relato-metodologico.md) | O que foi feito, como, com que ferramentas, limites e ética. **Comece por aqui.** |
-| [analise-videos-segundo-turno-2026.md](analise-videos-segundo-turno-2026.md) | Análise de cada um dos 91 conteúdos, fichas por grupo e panorama do conjunto |
+| [analise-videos-segundo-turno-2026.md](analise-videos-segundo-turno-2026.md) | Análise de cada um dos 98 conteúdos, fichas por grupo e panorama do conjunto |
 | [protocolo-pesquisa-cientifica.md](protocolo-pesquisa-cientifica.md) | Desenho para a versão científica e plano de expansão por sementes |
 | [fiel-da-balanca.html](fiel-da-balanca.html) | Nota técnica "Fiel da Balança" (TSE, pesquisas e simulador) |
-| [dados/corpus.csv](dados/corpus.csv) | Os 91 conteúdos: link, perfil, data, lote, grupo, alcance, legenda |
+| [dados/corpus.csv](dados/corpus.csv) | Os 98 conteúdos: link, perfil, data, lote, grupo, alcance, legenda |
 | [dados/coleta/](dados/coleta/) | Listas de coleta: sementes, buscas, triagem e vídeos compartilhados pelo colaborador |
 | [dados/primeiro_turno_presidente_por_uf.csv](dados/primeiro_turno_presidente_por_uf.csv) | Resultado do 1º turno por UF (TSE) |
 | [scripts/](scripts/) | Download, transcrição, triagem e agregação do TSE |
 
-## Números atuais (12/10/2026)
+## Números atuais (13/10/2026)
 
-**91 conteúdos e 98 entrevistados**, por grupo:
+**98 conteúdos e 102 entrevistados**, por grupo:
 
 | Grupo | Nº |
 |-------|----|
 | G1 | 4 |
-| G2 | 10 |
+| G2 | 11 |
 | G3 | 4 |
 | G4 | 2 |
-| REF Lula/esquerda | 20 |
-| REF Flávio/direita | 58 |
+| REF Lula/esquerda | 21 |
+| REF Flávio/direita | 60 |
+
+O lote 4 (conteúdos 92 a 98) traz a série de entrevistas de Carlinhos Maia nos Stories, recuperada por reposts.
 
 Não é amostra representativa: os vídeos passaram por seleção de quem filmou, de quem editou e de quem enviou.
 

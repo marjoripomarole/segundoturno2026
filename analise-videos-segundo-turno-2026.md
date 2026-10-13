@@ -167,6 +167,13 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 | 89 | [DeKG8wrzQHv](https://www.instagram.com/reel/DeKG8wrzQHv/) | @pedroronchi2 | 06/10/2026 | Reel | Sátira | ver ficha |
 | 90 | [DeIUyUdScWC](https://www.instagram.com/reel/DeIUyUdScWC/) | @vibeurbana.10 | 05/10/2026 | Reel | Eleitora de Lula; desinformação sobre pandemia | ver ficha |
 | 91 | [Dd-DzAjAjhU](https://www.instagram.com/reel/Dd-DzAjAjhU/) | @acasamanifesto | 01/10/2026 | Reel | Explicação educativa de esquerda e direita | ver ficha |
+| 92 | [DeX-fikMubJ](https://www.instagram.com/reel/DeX-fikMubJ/) | @fifizando | 12/10/2026 | Repost de Stories | Carlinhos Maia pergunta a dois funcionários (Lula e Flávio) | ver ficha |
+| 93 | [DeZqTCJJlBN](https://www.instagram.com/reel/DeZqTCJJlBN/) | @euouviepostei | 12/10/2026 | Repost de Stories | Funcionária explica voto em Flávio (Bolsa Família) | ver ficha |
+| 94 | [DeXN32oMW_E](https://www.instagram.com/reel/DeXN32oMW_E/) | @342artes | 11/10/2026 | Repost de Stories | Amigos na piscina de hotel respondem Lula | ver ficha |
+| 95 | [DeX1HEnsa6C](https://www.instagram.com/reel/DeX1HEnsa6C/) | @lion_26_01_ | 11/10/2026 | Repost de Stories | "Pesquisa" em condomínio; conclusão "os pobres votam no 22" | ver ficha |
+| 96 | [DeajxVVDbtX](https://www.instagram.com/reel/DeajxVVDbtX/) | @fofocanoblog | 13/10/2026 | Repost de Stories | Mulher na rua vota em Flávio sem dar motivo | ver ficha |
+| 97 | [DeaIMvPhFdg](https://www.instagram.com/reel/DeaIMvPhFdg/) | @niltonphilipeofc | 12/10/2026 | React | Pede a Carlinhos o "teste do projeto" | ver ficha |
+| 98 | [DeNLX9lhY6y](https://www.instagram.com/reel/DeNLX9lhY6y/) | @seremosresistencia | 07/10/2026 | Repost de Stories | Monólogo de Carlinhos Maia: "estou na dúvida" (G2) | ver ficha |
 
 ## Fichas por grupo de eleitor
 
@@ -183,6 +190,7 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 | **G2** Rejeita os dois | Pessoa em Curitiba | 74 | Não diz | Nenhum | n/a | Os dois |
 | **G2** "No centro" | Homem em Manaus | 86 | Não diz | Indefinido | Desconhece propostas | Nenhum |
 | **G2** Idosas que não votam | Duas senhoras com mais de 70 anos | 88 | Não votaram | Não vão votar | Voto facultativo | Não se mobilizam com informação nova |
+| **G2** Indeciso declarado (figura pública) | Carlinhos Maia, influenciador, empresário, nordestino | 98 | Não diz | "Juro por Deus que estou na dúvida" (07/10); sem declaração de voto até 13/10 | Gratidão por políticas que chegaram a Penedo (faculdade federal, escola técnica) × alternância e "olhar pelos empresários" | Direita: pauta moral ("banheiro"); esquerda: militância. Em 13/10: "medo" de que Flávio faça o que o pai falou |
 | **G2** Indecisa (direita) | Mulher, jovem; trabalha com políticos | 21 | Não diz (vídeo de agosto) | "Ainda não definiu" para presidente | Prioridades: "questão salarial, saúde"; diz que "não entende muito de política" | Não explicita |
 | **G2** Indecisos / abstenção | Mulher, 50+ (Curitiba, pelo cenário) | 12 | Não votou ("já não votei") | "Acho que não vou votar"; se votasse, "votaria no Lula" | Reconhece Farmácia Popular e expansão de universidades no governo Lula; nada de que se orgulhe no legado de Bolsonaro | Bolsonaro (não passou a faixa: "fez o papel sujo"); Lula como "ex-presidiário"; política de ataques sem plano de governo. A família vota em Flávio "mesmo ele não merecendo" |
 | **G3** Renan Santos | Eleitor convicto (monólogo) | 55 | Renan | Nenhum dos dois | "Os dois são bandidos"; "quem vai ganhar é a abstenção" | Lula e Flávio |
@@ -1478,11 +1486,159 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 
 ---
 
+# Lote 4: a "pesquisa" de Carlinhos Maia nos Stories (92 a 98)
+
+> **Indicação:** em 13/10/2026, a economista Laura Carvalho citou uma série de vídeos em que o influenciador Carlinhos Maia pergunta a pessoas em quem vão votar.
+> **Coleta:**
+> - Os vídeos originais saíram nos Stories de @carlinhos, que expiram em 24 horas. O que continua disponível são **reposts de páginas de terceiros** (fofoca, notícias e militância).
+> - Busca por palavra-chave no Instagram ("carlinhos maia eleição") em 13/10/2026: 40 resultados, metadados de 34 e transcrição de 16.
+> - Os 4 clipes com entrevistados foram transcritos de novo com um modelo maior (Whisper large-v3-turbo) para conferir as falas.
+>
+> **Seleção:** um conteúdo por cena. Quando várias páginas repostaram o mesmo trecho, o repost mais completo entrou como principal e os outros aparecem como duplicatas.
+>
+> **Limites próprios deste lote:**
+> - **Entrevistador com posição pública.** Carlinhos falou de política nos mesmos dias (ver 98), e a presença dele pode afetar as respostas.
+> - **Relação de trabalho diante da câmera.** Dois entrevistados são funcionários dele. Ele disse em 09/10 que nunca pede voto a funcionários, e uma funcionária declarou voto em Flávio, o que sugere alguma liberdade de resposta. Mesmo assim, a assimetria existe.
+> - **Trechos escolhidos por terceiros.** Não temos os Stories completos, só os trechos que cada página escolheu repostar, com a legenda que cada uma escreveu.
+
+## 92. @fifizando: funcionários respondem "Lula ou Flávio?" (12/10, cerca de 5 mil curtidas)
+- **Duplicata:** @espacobrasilbr (DeadFPIMtWf), mesmo trecho.
+- **Formato:** dentro de casa, Carlinhos pergunta a dois funcionários: "Quem vocês votam? Lula ou Flávio? Se não quiser responder, não precisa." Pergunta "por quê?" aos dois.
+- **E92a, funcionário, REF Lula:** responde "100% Lula".
+  - Motivo: tinha parado os estudos "no segundo ano", voltou a estudar e hoje faz faculdade de educação física "através dele".
+  - O filho "passou no Enem através dele".
+- **E92b, funcionária, REF Flávio (voto brando):** "Eu voto no Flávio, não vou mentir… eu respeito bastante quem vota no Lula e quem vota no Flávio."
+  - Motivo: "Não tenho nada contra também, nem muito a favor… Vamos para o novo? Vamos tentar… Eu quero ver se tem alguma coisa melhor." Termina com "vou arriscar".
+  - Um trecho sobre ser "fanática do Bolsonaro" fica ambíguo nas duas transcrições. Pelo contexto, ela parece negar.
+- **Leitura:**
+  - É o formato **aberto e simétrico**: mesma pergunta e mesmo "por quê?" para os dois.
+  - Os motivos são de tipos opostos:
+    - ele parte de uma **experiência concreta com política pública**;
+    - ela expressa um **desejo genérico de mudança**, sem adesão ao candidato.
+  - É o mesmo "voto de mudança" dos eleitores de Cury (49 e 57) e do conteúdo 18.
+
+## 93. @euouviepostei: a funcionária explica o voto em Flávio (12/10, **cerca de 49 mil curtidas**)
+- **Duplicata:** @chicofofoca (DeaQQm4J_MB).
+- **Mesma entrevistada de 92 (E92b),** reconhecível pelo uniforme e pelo cenário. Não é contada de novo.
+- **Argumento:**
+  - "Eu não sou contra o Bolsa Família, eu sou contra o seguinte: a pessoa… tá tão acomodada com aquele dinheiro que ela não quer trabalhar."
+  - Propõe que o governo encaminhe o beneficiário para "um trabalho certo e fixo" e corte o benefício depois dos "três meses de experiência".
+  - Diz que hoje "não é assim que funciona" e que "a gente que trabalha todos os dias vê muito isso".
+  - Conclui: "Vamos ver se, mudando de governo, vai ver se tem alguma coisa."
+- **Checagem:** o programa já tem uma **regra de proteção** (Lei 14.601/2023). Quando a renda da família sobe, ela não é cortada de imediato e mantém parte do benefício por um período de transição. A fala trata como inexistente uma "porta de saída" que já existe, embora com desenho diferente do que ela propõe.
+- **Leitura:**
+  - É o argumento do "assistencialismo com porta de saída", o mesmo da direita programática do conteúdo 68 (G1) e próximo do 65. Aqui ele aparece numa trabalhadora que não demonstra adesão a Flávio.
+  - A objeção não é à existência do programa ("não sou contra"). É à percepção de que ninguém sai dele, e vem da observação do dia a dia, não de dados.
+  - É a entrevista de maior engajamento da série.
+
+## 94. @342artes: "TÁ ACONTECENDO ALGO!", amigos na piscina de um hotel (11/10, cerca de 6 mil curtidas)
+- **Formato:** respostas-relâmpago de amigos de Carlinhos à beira da piscina de um hotel. Todos respondem Lula.
+- **Legenda:** "Carlinhos Maia pergunta para seus amigos em quem eles vão votar e TODOS respondem Lula." A descrição é fiel ao trecho, mas o "TÁ ACONTECENDO ALGO!" sugere uma tendência a partir de um círculo de amigos.
+- **Contagem:** enquete-relâmpago, sem motivos. **Não contabilizada** como entrevistados, pelo mesmo critério do conteúdo 82.
+
+## 95. @lion_26_01_: a "conclusão" da pesquisa, "quem vai votar no 22 é os pobres" (11/10, **cerca de 57 mil curtidas**)
+- **Recortes do mesmo Story:**
+  - @bahfos (DeXfeYcDOuc e DeXffVtG5sI, cerca de 83 mil curtidas);
+  - @zonafashionofc (DeXuowhpTgz, cerca de 56 mil);
+  - @vtzeiro (DeXsg-oMeM5).
+- **Cenas:**
+  - um homem na rua responde "Eu vou votar em Bolsonaro. Sou Bolsonaro";
+  - famílias num condomínio de alto padrão respondem "Lula".
+- **Conclusão de Carlinhos:** "Pelo que eu apurei aqui, junto com vocês, nas minhas pesquisas, quem vai votar no 22 é os pobres, viu?… O povo do hotel vai votar em Lula… Gente, tá tudo invertido… Os ricos dos hotéis, dos condomínios votam em Lula." Em seguida ele relativiza: "sei não, viu?"
+- **Contagem:** enquete-relâmpago. **Não contabilizada** como entrevistados.
+- **Checagem e triangulação:**
+  - **Brasil, Datafolha (6 e 7/10, BR-02949/2026):**
+    - renda familiar de até 2 salários mínimos: **Lula 52% × Flávio 41%**;
+    - renda de 2 a 5 salários mínimos: **Flávio 56% × Lula 38%**.
+    - "Os pobres votam no 22" **não vale para os mais pobres**. Nessa pesquisa, vale para a faixa intermediária.
+  - **Alagoas, TSE, 1º turno:**
+    - estado: **Lula 54,73% × Flávio 40,45%**;
+    - Maceió: **Flávio 52,36% × Lula 41,09%**;
+    - Penedo, cidade de Carlinhos: **Lula 57,94% × Flávio 36,93%**.
+    - Os números citados na legenda de @vtzeiro **conferem** com o TSE.
+  - **Alagoas por porte do município (eleitores aptos), TSE:**
+
+    | Porte | Lula | Flávio |
+    |-------|------|--------|
+    | Menos de 20 mil eleitores | 64,2% | 32,1% |
+    | 20 mil a 50 mil | 58,8% | 37,0% |
+    | 50 mil ou mais, sem Maceió | 50,6% | 44,0% |
+    | Maceió | 41,1% | 52,4% |
+
+  - **Leitura dos dados agregados:** em Alagoas, o interior de municípios menores votou mais em Lula, e a capital deu vitória a Flávio. Isso vai no **sentido oposto** ao da conclusão de Carlinhos. Ressalva: o dado agregado por município não mostra como cada pessoa vota.
+- **Leitura:**
+  - É um caso didático de **amostra de conveniência**:
+    - os "ricos" entrevistados são amigos e vizinhos de condomínio de uma celebridade que, dias antes, falou publicamente da gratidão a Lula;
+    - os "pobres" são trabalhadores que ele encontrou no caminho ou que trabalham para ele.
+  - A observação pode valer **para o círculo dele** e para a faixa de renda intermediária, e mesmo assim estar errada como retrato dos pobres em geral.
+  - Somados, os reposts da conclusão chegam a cerca de 200 mil curtidas. A conclusão circulou muito mais que os dados que a contradizem.
+
+## 96. @fofocanoblog: mulher abordada na rua, de dentro do carro (13/10, cerca de 2 mil curtidas)
+- **Duplicata:** Deaj0Q6DZe2, da mesma página.
+- **E96, REF Flávio:**
+  - Responde "Flávio". Carlinhos pede: "Tá, por quê? Me convença."
+  - No trecho, ela não dá um motivo. Ele encerra: "Pois pense, na próxima você me diz."
+- **Enquadramento:** a página põe sobre o vídeo um post do X: "Carlinhos Maia segue mostrando para todos que é um ERRO votar no Flávio… quem vota no Flávio não tem justificativa pra votar nele." É **legenda além da fala**: uma abordagem de 18 segundos, feita de dentro de um carro, vira prova sobre todos os eleitores de Flávio.
+- **Leitura:** é o "teste do projeto" em versão curta. A mesma pergunta, "por quê?", teve resposta da funcionária eleitora de Lula (92) e não teve aqui. Com uma pessoa só, não dá para concluir mais do que isso.
+
+## 97. @niltonphilipeofc: react que pede o "teste do projeto" (12/10)
+- **Formato:** comentário em vídeo, sem entrevistado.
+- **Fala:**
+  - "As pessoas não sabem dizer o porquê vão votar no Flávio… a não ser falar de PT e Lula."
+  - Pede que Carlinhos, quando alguém disser que vota em Flávio, pergunte "o que que o Flávio fez, um projeto de lei".
+  - Afirma que essas mesmas pessoas saberiam citar escândalos de Flávio.
+- **Leitura:** é o "teste do projeto" pedido explicitamente, e **para um lado só**. É o desenho que este estudo critica: o teste espelhado (83) mostra que a baixa informação aparece nos dois lados.
+
+## 98. Carlinhos Maia, monólogo de 07/10: "eu juro por Deus que eu estou na dúvida" (via @seremosresistencia, **cerca de 215 mil curtidas**), **G2**
+- **Recortes do mesmo vídeo, segundo as legendas:**
+  - @cortesph (react, cerca de 182 mil curtidas) e @politicaanointerior (cerca de 57 mil);
+  - @pragmatismopolitico, @midianinja, @342artes, @memesbrasil, @midinoelle e outros.
+  - Desses, três foram transcritos: @seremosresistencia, @cortesph e @politicaanointerior.
+- **Por que entra como G2:** ele se declara indeciso entre os dois finalistas e explica por quê. Por ser figura pública, aparece com nome.
+- **O que o puxa para Lula:** gratidão por políticas que chegaram à cidade dele quando era "pobre, nordestino, no interior de Alagoas".
+  - "Do nada veio uma faculdade federal, pra uma cidade de 60 mil habitantes."
+  - Estudou numa escola técnica "ganhando 400 reais por mês".
+  - "Só sei que chegou no Nordeste e eu fui beneficiado."
+- **O que o puxa para a direita:**
+  - a alternância de poder: "ele está há muito tempo no poder";
+  - o interesse de empresário: "a direita olha pelos empresários, e eu sou empresário hoje em dia, e preciso desse olhar".
+- **O que critica nos dois lados:**
+  - na direita, a pauta moral ("quem usa ou não o banheiro"), enquanto "saúde, educação, saneamento" ficam esquecidos;
+  - na esquerda, a militância: "você não conversa mais com as pessoas de esquerda, você milita".
+- **Pauta concreta:** no recorte de @cortesph, defende o fim da escala 6x1 mesmo sendo patrão: "não existe você só ter um dia de folga".
+- **Checagem:**
+  - O campus do IFAL em Penedo fez parte da primeira etapa da expansão do instituto no estado, iniciada em 2010, no 2º governo Lula (relatório do próprio IFAL). A data de chegada da unidade da UFAL a Penedo não foi confirmada.
+  - A legenda de @politicaanointerior diz que ele "declarou apoio a Lula". **Não é o que ele diz no vídeo**: ele diz estar em dúvida. É legenda além da fala.
+- **Os dias seguintes (monólogos repostados, sem entrevistados):**
+  - **09/10** (@metropolesfun, @leodias, @342artes): diz que nunca pediu voto a funcionários e amigos: "não acho certo, não acho legal". A legenda do Metrópoles lembra que coagir funcionários a votar pode configurar assédio eleitoral.
+  - **11 e 12/10:** faz a "pesquisa" registrada nos conteúdos 92 a 95.
+  - **12/10** (@politicaanointerior): responde a mensagens de medo dos dois lados, como "imagina uma família inteira no poder" e "o Lula tá 20 anos, tem que mudar".
+    - Diz "que medo é esse?… nós somos 200 milhões… a gente tira".
+    - Defende que "a democracia não pode ser tirada".
+  - **13/10** (@noticiaexplicada): "A minha preocupação é uma, com o Flávio: o Bolsonaro falou muitas coisas absurdas. O meu medo é que o que o pai falou, o filho queira fazer."
+  - Nos trechos coletados até 13/10, **não há declaração explícita de voto**.
+- **Leitura:**
+  - É o G2 mais visível da amostra e o único com trajetória acompanhada dia a dia.
+  - A pressão cruzada é clara: de um lado, **gratidão por uma experiência pessoal com política pública**; do outro, **desejo de alternância e interesse de classe**.
+  - Nos dias seguintes, o movimento vai em direção ao **medo de que o filho continue o pai** (13/10), e não a propostas.
+  - O monólogo teve muito mais engajamento que as entrevistas. Páginas de militância de esquerda o difundiram como apoio ("BORA LULAAA! BORA @CARLINHOS!", @seremosresistencia, 12/10).
+
+## O que a série acrescenta ao estudo
+1. **Um G2 de grande alcance, com motivos explícitos.** A indecisão vem da disputa entre gratidão e alternância, não de desinformação nem de desinteresse (98).
+2. **O motivo "mudança" aparece de novo, sem conteúdo.** "Vamos para o novo? Vamos tentar" (92) repete o que disseram os eleitores de Cury (49 e 57) e a entrevistada do conteúdo 18.
+3. **O Bolsa Família como objeção de quem trabalha.** A crítica não é ao programa, é à falta de saída percebida (93; também 65 e 68). A regra de transição existe, mas não aparece na fala.
+4. **Uma conclusão errada viraliza mais que os dados.** "Os pobres votam no 22" contradiz o Datafolha e o TSE, e circulou em reposts que somam cerca de 200 mil curtidas (95).
+5. **Os mesmos vícios de enquadramento, agora em páginas de fofoca:**
+   - legenda além da fala (96 e 98);
+   - "teste do projeto" pedido para um lado só (97).
+
+---
+
 ## Panorama do conjunto (atualizado a cada novo link)
 
-**Composição da amostra até agora (91 conteúdos, 98 entrevistados)**
+**Composição da amostra até agora (98 conteúdos, 102 entrevistados)**
 
-> Ficam fora da contagem de entrevistados: 37 (áudio ininteligível), 43 (sem resposta), 59 (monólogo de campanha), 82 (enquete-relâmpago), 89 (sátira) e 91 (conteúdo educativo).
+> Ficam fora da contagem de entrevistados: 37 (áudio ininteligível), 43 (sem resposta), 59 (monólogo de campanha), 82, 94 e 95 (enquetes-relâmpago), 89 (sátira), 91 (conteúdo educativo) e 97 (react sem entrevistado). A entrevistada de 93 é a mesma de 92 e conta uma vez só.
 
 **Origem dos conteúdos**
 
@@ -1491,6 +1647,7 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 | Enviados por você (1 a 25) | 25 |
 | Compartilhados por um colaborador (26 a 54) | 29 |
 | Expansão por sementes e buscas (55 a 91) | 37 |
+| Série de Carlinhos Maia, via reposts de Stories (92 a 98) | 7 |
 
 **Quem publica**
 - **Candidatos e militância do campo da esquerda:** cerca de 20 conteúdos (Luciano da Luz e reposts, Wender, Quaquá, BFC).
@@ -1499,27 +1656,28 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
   - @vinimachadofc_: 9, 30, 52, 68 a 75.
   - @eduhenricooficial: 38, 76 a 81.
   - @reporterdemilhoes: 46, 50, 82 a 86.
+- **Páginas de fofoca e de notícia que repostam Stories de celebridades:** 92 a 98 (série de Carlinhos Maia). Cada página escolhe o trecho e a legenda.
 - **Perfis de direita identificados como fonte:** ainda só @reporterdemilhoes, que conduz a favor de Flávio e faz campanha para governador. Continua sendo a maior lacuna.
 
-**Quem é entrevistado (98 pessoas)**
+**Quem é entrevistado (102 pessoas)**
 
 | Grupo | Nº | Conteúdos |
 |-------|----|-----------|
 | G1: direita com reservas a Bolsonaro / voto instrumental | 4 | 4, 40, 68, 79 |
-| G2: indecisos, "nenhum dos dois" ou abstenção | 10 | 12, 21, 28, 60, 61, 69, 74, 86, 88 (2) |
+| G2: indecisos, "nenhum dos dois" ou abstenção | 11 | 12, 21, 28, 60, 61, 69, 74, 86, 88 (2), 98 |
 | G3: eleitores de Renan Santos | 4 | 55, 56 (3) |
 | G4: eleitores de Augusto Cury | 2 | 49, 57 |
-| REF: eleitores de Lula ou de esquerda | 20 | 15, 24, 33, 38, 39, 42, 46, 62, 63, 64, 70, 71, 72, 75, 76, 77, 83, 84, 85, 90 |
-| REF: eleitores de Flávio ou de direita | 58 | demais |
+| REF: eleitores de Lula ou de esquerda | 21 | 15, 24, 33, 38, 39, 42, 46, 62, 63, 64, 70, 71, 72, 75, 76, 77, 83, 84, 85, 90, 92 |
+| REF: eleitores de Flávio ou de direita | 60 | demais (inclui 92/93 e 96) |
 
-> Com a expansão, os grupos-alvo passaram de 7 para 20 pessoas, e os eleitores de Lula de 7 para 20. A amostra ficou menos desequilibrada, mas ainda não é representativa.
+> Com a expansão, os grupos-alvo passaram de 7 para 20 pessoas, e os eleitores de Lula de 7 para 20. A amostra ficou menos desequilibrada, mas ainda não é representativa. O lote 4 acrescentou 4 pessoas: 1 no G2 (Carlinhos Maia, 98) e 3 de referência (92 e 96).
 
 **O que caracteriza cada grupo pivotal (síntese qualitativa)**
 
 | Grupo | Como pensa | Para onde tende | Exemplos |
 |-------|------------|-----------------|----------|
 | **G1** | Direita programática (vida, família, propriedade, "assistencialismo com porta de saída") ou antipetismo de longa data. Menciona pouco Bolsonaro; reconhece desconfortos (caso Vorcaro) | **Flávio, como instrumento**: "a única forma de tirar o sistema", "não vamos admitir a roubalheira do PT" | 40, 68, 79 |
-| **G2** | Rejeição aos dois por desempenho ("todo mundo erra"), impotência ("meu voto não muda nada"), desconexão espiritual ou idade (voto facultativo) | **Abstenção ou indefinição.** A informação nova (por exemplo, o plano golpista) não mobiliza (88) | 60, 61, 69, 74, 88 |
+| **G2** | Rejeição aos dois por desempenho ("todo mundo erra"), impotência ("meu voto não muda nada"), desconexão espiritual ou idade (voto facultativo). Também pressão cruzada: gratidão por políticas públicas × desejo de alternância (98) | **Abstenção ou indefinição.** A informação nova (por exemplo, o plano golpista) não mobiliza (88). No caso 98, o que pesa nos dias seguintes é o medo de que o filho continue o pai | 60, 61, 69, 74, 88, 98 |
 | **G3** | Lealdade forte a Renan e rejeição moral aos dois ("dois bandidos") | **Branco, nulo ou abstenção**, coerente com os 27% do PoderData e com a neutralidade de Renan | 55, 56 |
 | **G4** | Voto por "mudança", com relutância diante dos dois finalistas | **Dividido**: um foi para Flávio, mas "vai pensar" (49); outra vai para Lula "entre o medo e a mesmice" (57) | 49, 57 |
 
@@ -1533,7 +1691,7 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 5. **Migração do PT para a direita** aparece em 2 casos (22, 67). O caminho inverso (direita → Lula) aparece de forma relutante (57) ou como rejeição à pessoa de Bolsonaro (4, 12).
 6. **O que mais circula:** os vídeos mais vistos e curtidos são os de falas extremas ou ingênuas, como 64 (cerca de 4,4 milhões de visualizações) e 90 (cerca de 377 mil curtidas). Não são os mais informativos. O algoritmo amplifica justamente o que menos representa o eleitor médio.
 
-**O que os eleitores de Flávio e de direita dizem (58 pessoas)**
+**O que os eleitores de Flávio e de direita dizem (60 pessoas)**
 
 | Motivo | Exemplos de conteúdos |
 |--------|-----------------------|
@@ -1542,17 +1700,20 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 | Valores morais e religiosos | 1, 7, 9, 22, 30, 52, 73 |
 | Economia, impostos, segurança, armas | 8, 9, 25, 27, 28, 29, 33, 36, 45, 65, 66, 87 |
 | Experiência pessoal negativa (desemprego, negócio fechado) | 36, 85, 87 |
+| Mudança genérica, "vamos tentar o novo" | 22, 92 |
+| Bolsa Família sem "porta de saída" | 65, 93 |
+| Sem motivo declarado | 96 |
 | Censura, STF, "não é democracia" | 39, 44, 48, 78 |
 | 8 de janeiro, anistia, urnas | 2, 19, 24, 32 |
 | Desconfiança total das instituições | 35, 47, 54 |
 | Negação do resultado de 2022 | 51 |
 | Discurso de ódio, violento ou antidemocrático | 26, 32, 47, 53, 66 |
 
-**O que os eleitores de Lula e de esquerda dizem (20 pessoas)**
+**O que os eleitores de Lula e de esquerda dizem (21 pessoas)**
 
 | Motivo | Exemplos de conteúdos |
 |--------|-----------------------|
-| Trajetória pessoal e políticas públicas (Fies, ProUni, Luz para Todos, IFs) | 15, 24, 42, 83, 84 |
+| Trajetória pessoal e políticas públicas (Fies, ProUni, Luz para Todos, IFs, Enem) | 15, 24, 42, 83, 84, 92 |
 | Políticas sociais e de inclusão | 38, 63, 76, 84 |
 | Rejeição a Bolsonaro / "miliciano" / pandemia | 33, 71, 72, 90 |
 | Economia pessoal favorável | 76 |
@@ -1565,17 +1726,17 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 
 | Padrão | Conteúdos |
 |--------|-----------|
-| "Teste do projeto" aplicado a eleitores de Flávio | 5, 7, 8, 10, 11, 12, 17, 18, 22, 23, 25, 27, 42, 43, 44, 50, 51, 85, 86, 87 |
+| "Teste do projeto" aplicado a eleitores de Flávio | 5, 7, 8, 10, 11, 12, 17, 18, 22, 23, 25, 27, 42, 43, 44, 50, 51, 85, 86, 87, 96; pedido explicitamente em 97 |
 | **"Teste do projeto" aplicado a eleitores de Lula** | 17, 25, 46, **83**, 85 |
 | Entrevistador como checador ou orientador, tentando mudar o voto | 10, 12, 34, 47, 49, 51, 54, 88 |
 | Entrevistador conduz ou provoca a favor de Flávio | 46, 84 |
-| Caso extremo apresentado como típico | 14, 20, 26, 32, 53 |
-| Título ou legenda que desqualifica ou reduz o eleitor | 7, 18, 23, 27, 31, 48, 58 |
-| Legenda com desinformação | 59 |
-| Repost ou "react" que amplia material alheio | 4, 23, 25, 26, 27, 32, 41, 48, 53, 58 |
+| Caso extremo apresentado como típico | 14, 20, 26, 32, 53; generalização a partir de amostra de conveniência em 95 e 96 |
+| Título ou legenda que desqualifica ou reduz o eleitor | 7, 18, 23, 27, 31, 48, 58, 96 |
+| Legenda com desinformação | 59; em 98, a legenda atribui a Carlinhos um apoio que ele não declarou |
+| Repost ou "react" que amplia material alheio | 4, 23, 25, 26, 27, 32, 41, 48, 53, 58, 92 a 98 |
 | Autor com interesse eleitoral direto | 2, 4, 5, 6, 7, 8, 11, 14, 15, 20, 26, 39, 42, 45, 86 |
 | Conteúdo de persuasão dirigido aos grupos pivotais | 59 e os perfis da seção "Achado da expansão" |
-| **Formato aberto e simétrico (mesma pergunta para todos)** | **24, 38, 60–81** (criadores "esquerda ou direita?"), em parte 16, 29, 36, 45 |
+| **Formato aberto e simétrico (mesma pergunta para todos)** | **24, 38, 60–81** (criadores "esquerda ou direita?"), **92**, em parte 16, 29, 36, 45 |
 | Conteúdo educativo equilibrado | 91 |
 
 **Afirmações que mais precisam de checagem externa**
@@ -1589,6 +1750,7 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 - Os valores do fundo eleitoral e os votos de Flávio sobre ele (conteúdo 41).
 - A acusação de emenda de R$ 200 mil de Flávio a miliciano ligado ao caso Marielle (conteúdo 59).
 - A proposta de "trabalho por hora" atribuída à campanha de Flávio (conteúdo 87).
+- A data de chegada da unidade da UFAL a Penedo, citada por Carlinhos Maia (conteúdo 98).
 
 **Próximo passo sugerido para a coleta**
 - **Pedir vídeos com outros eleitores.** Pedir aos seguidores, explicitamente, vídeos de eleitores **indecisos**, de quem votou em **Cury**, **Renan** ou **Caiado**, e de **direita não bolsonarista**.

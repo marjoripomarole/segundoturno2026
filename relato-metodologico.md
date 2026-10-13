@@ -40,6 +40,7 @@
 | 11/10 | A pesquisadora pediu para procurar vídeos na conversa com o colaborador | Conteúdos 26 a 54 (29 vídeos ainda não enviados) |
 | 11/10 | A pesquisadora pediu a expansão por sementes sugerida pelo colaborador. O Instaloader foi testado e bloqueado. A pesquisadora escolheu a navegação assistida no Chrome | Conteúdos 55 a 91 |
 | 12/10 | A pesquisadora pediu este relato | Este documento, mais `dados/` e `scripts/` |
+| 13/10 | A pesquisadora pediu para encontrar a série de entrevistas de Carlinhos Maia citada por Laura Carvalho | Conteúdos 92 a 98 (lote 4) |
 
 ---
 
@@ -70,13 +71,14 @@
   - números de uma pesquisa de **maio** que aparecia em matéria de outubro (ver seção 7).
 
 ### 3.3 Vídeos (corpus)
-São 91 conteúdos, em três lotes:
+São 98 conteúdos, em quatro lotes:
 
 | Lote | Conteúdos | Origem | Como foi obtido |
 |------|-----------|--------|-----------------|
 | 1 | 1 a 25 | Links enviados pela pesquisadora no chat | Enviados manualmente |
 | 2 | 26 a 54 | Vídeos compartilhados por um colaborador em conversa privada de Instagram | Leitura da conversa no Chrome da pesquisadora |
 | 3 | 55 a 91 | Expansão por perfis-semente e buscas por palavra-chave | Navegação assistida no Chrome da pesquisadora |
+| 4 | 92 a 98 | Série de Carlinhos Maia nos Stories, recuperada por reposts de terceiros | Busca por palavra-chave no Chrome da pesquisadora |
 
 A lista completa está em [dados/corpus.csv](dados/corpus.csv): link, perfil, data, curtidas e comentários na coleta, legenda original, grupo e caminho da transcrição.
 
@@ -142,6 +144,27 @@ A lista completa está em [dados/corpus.csv](dados/corpus.csv): link, perfil, da
 - Uma busca no YouTube por entrevistas de rua sobre o 2º turno trouxe quase só noticiário e comentário.
 - Não foi incluída no corpus. A conclusão foi que as entrevistas de rua circulam sobretudo no Instagram e no TikTok.
 
+### 4.5 Lote 4: a série de Carlinhos Maia (13/10)
+- **Ponto de partida:** a economista Laura Carvalho citou uma série em que o influenciador pergunta a pessoas em quem vão votar.
+- **Problema:** os vídeos foram publicados nos Stories de @carlinhos, que expiram em 24 horas. O perfil dele não guarda a série.
+- **Solução:** busca por palavra-chave no Instagram ("carlinhos maia eleição"). O que sobrou da série são **reposts de páginas de terceiros**.
+- **Funil:**
+
+| Etapa | Quantidade |
+|-------|-----------|
+| Resultados da busca | 40 |
+| Com metadados obtidos | 34 |
+| Transcritos (Whisper small) | 16 |
+| Retranscritos com Whisper large-v3-turbo, para conferir falas | 4 |
+| Conteúdos no corpus | 7 (92 a 98) |
+
+- **Critério:** um conteúdo por cena. Quando várias páginas repostaram o mesmo trecho, ficou o repost mais completo; os outros foram registrados como duplicatas na ficha.
+- **Limites próprios:**
+  - o entrevistador é uma figura pública com posição declarada nos mesmos dias;
+  - dois entrevistados são funcionários dele;
+  - os trechos e as legendas foram escolhidos pelas páginas que repostaram, não pelo autor.
+- **Triangulação:** a conclusão de Carlinhos ("os pobres votam no 22") foi comparada com o Datafolha de 6 e 7/10 por faixa de renda e com o resultado do 1º turno em Alagoas por porte de município (TSE).
+
 ---
 
 ## 5. Processamento de cada vídeo
@@ -181,26 +204,28 @@ Aplicado a todos, qualquer que seja o lado:
 - **Regra do grupo:** é definido **pelo que a pessoa declara no vídeo**, nunca pelo que o título ou a legenda sugerem.
 
 ### 6.3 Contagens
-- **Total:** 91 conteúdos e 98 entrevistados.
+- **Total:** 98 conteúdos e 102 entrevistados.
 - **Fora da contagem de entrevistados:**
   - 3: imagem;
   - 37: áudio ininteligível;
   - 43: sem resposta;
   - 59: monólogo de campanha;
-  - 82: enquete-relâmpago;
+  - 82, 94 e 95: enquetes-relâmpago;
   - 89: sátira;
-  - 91: conteúdo educativo.
+  - 91: conteúdo educativo;
+  - 97: react sem entrevistado.
+- **Mesma pessoa em dois conteúdos:** a entrevistada de 93 é a mesma de 92 e conta uma vez só.
 - **Vídeos com várias pessoas:** cada pessoa que fala de forma identificável conta como 1 entrevistado.
 - **Grupos:**
 
 | Grupo | Nº |
 |-------|----|
 | G1 | 4 |
-| G2 | 10 |
+| G2 | 11 |
 | G3 | 4 |
 | G4 | 2 |
-| REF Lula/esquerda | 20 |
-| REF Flávio/direita | 58 |
+| REF Lula/esquerda | 21 |
+| REF Flávio/direita | 60 |
 
 ### 6.4 Formato
 - **Lote 1:** análise detalhada por conteúdo.
@@ -250,7 +275,7 @@ Aplicado a todos, qualquer que seja o lado:
   - as cores dos candidatos seguem a ordem do 1º turno, não as cores dos partidos;
   - o uso de IA está declarado no rodapé.
 - **Publicação:** página privada em https://claude.ai/artifact/RCt5JtEJcCfc4eALovKu5J. Arquivo-fonte: [fiel-da-balanca.html](fiel-da-balanca.html).
-- **Pendência:** a seção 7 da nota (entrevistas de rua) reflete só os 4 primeiros vídeos e **está desatualizada** frente aos 91 atuais.
+- **Pendência:** a seção 7 da nota (entrevistas de rua) reflete só os 4 primeiros vídeos e **está desatualizada** frente aos 98 atuais.
 
 ---
 
@@ -308,6 +333,7 @@ Detalhes no Panorama do arquivo de análise.
 - **O que não foi publicado:** as transcrições completas e as legendas de terceiros da triagem.
 - **Onde está o original:** a versão com nomes fica num arquivo privado da pesquisadora.
 - **Políticos, candidatos e perfis que publicaram os vídeos continuam identificados**, porque são atores públicos.
+- **Lote 4:** Carlinhos Maia aparece com nome, por ser figura pública que falou de política em público. Os funcionários dele e a mulher abordada na rua aparecem só por código (E92a, E92b, E96). O nome de uma funcionária, dito no vídeo, não foi registrado.
 
 ## 13. Reprodutibilidade: o que está no projeto
 
@@ -317,7 +343,7 @@ Detalhes no Panorama do arquivo de análise.
 | [protocolo-pesquisa-cientifica.md](protocolo-pesquisa-cientifica.md) | Desenho para a versão científica (seções 1 a 9) e expansão por sementes (seção 10) |
 | [relato-metodologico.md](relato-metodologico.md) | Este relato |
 | [fiel-da-balanca.html](fiel-da-balanca.html) | Fonte da nota técnica publicada |
-| [dados/corpus.csv](dados/corpus.csv) | Os 91 conteúdos: link, perfil, data, lote, grupo, alcance, legenda, transcrição |
+| [dados/corpus.csv](dados/corpus.csv) | Os 98 conteúdos: link, perfil, data, lote, grupo, alcance, legenda, transcrição |
 | [dados/coleta/](dados/coleta/) | Códigos por semente e busca, candidatos da expansão, triagem e lista dos vídeos compartilhados pelo colaborador |
 | [dados/primeiro_turno_presidente_por_uf.csv](dados/primeiro_turno_presidente_por_uf.csv) | Resultado do 1º turno por UF (TSE) |
 | [scripts/processar_videos.sh](scripts/processar_videos.sh) | Download, quadros e transcrição |
@@ -342,5 +368,5 @@ Detalhes no Panorama do arquivo de análise.
 2. **Cobrir a lacuna da direita:** identificar criadores de direita que entrevistam eleitores, por indicação de seguidores ou por busca a partir de outra conta, e aplicar a mesma expansão.
 3. **Teste espelhado:** buscar ou produzir entrevistas com a mesma pergunta para eleitores dos dois lados ("defenda seu candidato sem citar o outro"; "cite um projeto dele").
 4. **Pré-registrar no OSF** o protocolo antes de ampliar a coleta.
-5. **Atualizar a seção qualitativa da nota "Fiel da Balança"** com a amostra de 91 conteúdos, se a nota continuar circulando.
+5. **Atualizar a seção qualitativa da nota "Fiel da Balança"** com a amostra de 98 conteúdos, se a nota continuar circulando.
 6. **Coletar com cronograma diário** até 25/10 e uma semana depois, porque vídeos são apagados.
