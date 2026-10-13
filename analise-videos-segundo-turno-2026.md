@@ -1756,3 +1756,272 @@ Cada pessoa entrevistada recebe uma ficha, separada da análise do vídeo:
 - **Pedir vídeos com outros eleitores.** Pedir aos seguidores, explicitamente, vídeos de eleitores **indecisos**, de quem votou em **Cury**, **Renan** ou **Caiado**, e de **direita não bolsonarista**.
 - **Variar quem publica.** Pedir também vídeos de perfis de direita e de veículos jornalísticos.
 - **Simetria no "teste do projeto".** Procurar vídeos em que a pergunta sobre projetos seja feita a eleitores de Lula, para comparar com os de Flávio.
+
+---
+
+# Reações à contra-evidência (RQ3)
+
+> **Codificação de 12/10/2026**, nos 91 conteúdos. Uma linha por confronto em [dados/reacoes_contraevidencia.csv](dados/reacoes_contraevidencia.csv): 55 confrontos em 32 conteúdos.
+> **Um só codificador (assistente de IA), sem revisão humana.** Leia os limites antes das conclusões.
+
+## Pergunta
+
+Um colaborador do projeto levantou a hipótese de que poucas pessoas se perguntam "e se eu estiver errado?". A terceira pergunta (RQ3), ao lado das Perguntas A e B do [protocolo](protocolo-pesquisa-cientifica.md), é:
+
+> Quando um entrevistado é confrontado, no próprio vídeo, com informação contrária à sua posição, como ele reage? A reação muda entre eleitores de Lula e de Flávio?
+
+O mesmo critério vale para os dois lados.
+
+## O que conta como confronto
+
+**Definição:** é o momento em que o entrevistado recebe uma informação contrária a uma afirmação dele ou ao voto dele. A informação pode ser:
+- dado, documento, notícia, registro público ou declaração;
+- argumento apoiado em fatos.
+
+**Quem confronta:**
+- o entrevistador;
+- a edição: inserção na tela, legenda ou camada de *react*;
+- outro entrevistado. Não há nenhum caso: nos vídeos com eleitores dos dois lados (15, 24, 38, 42, 46), eles nunca discutem entre si.
+
+**Unidade:** cada informação nova é um confronto. Insistir na mesma informação não abre um confronto novo.
+
+**Tipos de confronto (coluna `tipo_confronto`):**
+
+| Tipo | O que é |
+|------|---------|
+| `contra_afirmacao` | Fato que contradiz algo que a pessoa acabou de dizer |
+| `negativo_sobre_candidato` | Fato negativo sobre o candidato ou o campo da pessoa. No G2, sobre um dos finalistas |
+| `positivo_outro_lado` | Fato favorável ao candidato ou ao campo adversário |
+| `hipotese` | Evidência hipotética ("e se aparecesse um vídeo?") |
+| `argumento` | Interpretação ou argumento, sem fato central checável |
+
+**Ficam de fora (casos-limite):**
+- **"Teste do projeto":** pede um projeto ao entrevistado, mas não traz informação. Já está contado no Panorama.
+- **Perguntas céticas sem informação:** "Mas ele ia mudar a linguagem?" (20), "O que Deus tem a ver com política?" (38), "essa história é um pouco mais complexa" (58).
+- **Perguntas sobre a coerência da própria fala, sem fato novo:** desconfiar da urna e seguir votando (19), Biden (20), "você disse que era pelas pautas" (28).
+- **Perguntas sobre a opinião de terceiros:**
+  - "por que tantas pessoas votam no Lula?" (78, 80, 81);
+  - "por que as pessoas reclamam do Lula?" (77);
+  - "há empresários insatisfeitos com o governo Lula" (76). Se o conteúdo 76 entrasse, seria mais um confronto do lado de Lula, codificado como "contesta com argumento": o entrevistado cita o crescimento do próprio setor.
+- **Checagens feitas só nesta análise, e não no vídeo:**
+  - falas falsas ou sem prova que ninguém contesta no vídeo, à direita (9, 14) e entre eleitores de Lula (90);
+  - números errados que ninguém corrige no vídeo (55, 86).
+
+## Categorias de reação (definições operacionais)
+
+As oito primeiras foram definidas antes da codificação. As duas últimas foram acrescentadas durante a codificação, pelos motivos indicados.
+
+| Código | Categoria | Definição | Exemplo |
+|--------|-----------|-----------|---------|
+| `reconsidera` | Reconsidera | Diz que vai pensar ou pesquisar, ou que a informação pode mudar a posição | "Vou pensar" (49) |
+| `aceita_em_parte` | Aceita em parte | Reconhece a informação como verdadeira, no todo ou em parte, ou concede o ponto, sem anunciar mudança de posição. Inclui suspender o juízo até haver conclusão | "Nós ficamos um pouquinho vexados [...] porém continuaremos votando nele" (40) |
+| `descarta_falso` | Descarta como falso ou "fake" | Nega a informação específica: "não existe", "mentira", "fake", "falsa narrativa" | "Isso não existe" (34) |
+| `desconfianca_generalizada` | Desconfiança generalizada | Rejeita a informação invocando a falta de confiança em geral na imprensa, nas instituições ou em "tudo", sem contestar o dado | "Tá todo mundo comprado" (35) |
+| `relativiza` | Relativiza | Não nega a informação, mas tira o peso dela: "todos são iguais", "não tem santo", "é normal", "isso é antigo", "quem somos nós para julgar", "cada um com sua opinião" | "Acho normal" (41) |
+| `contra_ataque` | Contra-ataque / *whataboutism* | Em vez de tratar da informação, aponta falhas, crimes ou ilegitimidade do outro lado, ou ataca quem confronta | "O Lula é ladrão e já era" (6) |
+| `muda_assunto_nao_responde` | Muda de assunto ou não responde | Não trata da informação: silêncio, evasiva, "não sei", ou repete a própria posição ou um slogan | "Moral", repetido (7) |
+| `encerra_conversa` | Encerra a conversa | Sai, interrompe ou se recusa a continuar | A eleitora se afasta (7) |
+| `contesta_argumento` | Contesta com argumento (*acrescentada*) | Responde ao mérito com contra-argumento ou outra leitura do fato, sem negá-lo e sem desviar para o outro lado | "E o imposto da minha família pagou, não é para isso?" (45) |
+| `sem_reacao_observavel` | Sem reação observável (*não é reação*) | Inserção da edição feita depois da gravação, ou vídeo que termina antes da resposta | — |
+
+> **Por que acrescentar "contesta com argumento":** respostas como a do médico do conteúdo 45 não cabem em nenhuma das oito categorias. Enquadradas como contra-ataque, fariam um argumento sobre o mérito parecer desvio.
+
+**Regras:**
+- **Reação principal:** é a primeira reação que trata da informação. A insistência dos entrevistadores varia muito, de uma pergunta a vários minutos, e a primeira reação é a mais comparável entre vídeos.
+- **Reação final:** é a última reação observável à mesma informação. As reações intermediárias também ficam registradas.
+- **Voto:** o que a pessoa diz sobre o voto depois do confronto vai para a coluna `voto_apos`, não para a reação.
+- **Trecho de fala:** cada código traz o trecho que o justifica (coluna `trecho_reacao`). A transcrição é automática, com ortografia normalizada e nomes omitidos. Quando o falante de uma frase é incerto, o CSV avisa (10, 18, 25, 84 e 88).
+- **Precisão da informação usada no confronto:** só valem as checagens já registradas neste arquivo. Os valores são:
+  - `correta`;
+  - `correta_com_ressalva`: recortada, com formulação forte ou com detalhe não verificado;
+  - `imprecisa`;
+  - `incorreta`;
+  - `mista`: partes corretas e partes imprecisas ou incorretas;
+  - `nao_verificada`: o arquivo não checou;
+  - `nao_se_aplica`: argumento ou hipótese.
+
+## Resultados
+
+### Quem é confrontado: o desequilíbrio é o primeiro achado
+
+**Por lado**
+
+| Lado do entrevistado | Confrontos | Pelo entrevistador | Pela edição | Com reação observável | Pessoas confrontadas na conversa |
+|----------------------|-----------:|-------------------:|------------:|----------------------:|---------------------------------:|
+| Flávio/direita (REF, G1 e G4) | 44 | 37 | 7 | 36 | 22 |
+| Lula/esquerda (REF) | 6 | 6 | 0 | 5 | 4 |
+| Indefinido (G2) | 5 | 5 | 0 | 5 | 5 |
+| **Total** | **55** | **48** | **7** | **46** | **31** |
+
+**Por grupo**
+
+| Grupo | Entrevistados na amostra | Confrontados na conversa | Só pela edição | Confrontos | Confrontos por entrevistado do grupo |
+|-------|-------------------------:|-------------------------:|---------------:|-----------:|-------------------------------------:|
+| REF Flávio/direita | 58 | 20 (34%) | 3 | 39 | 0,67 |
+| REF Lula/esquerda | 20 | 4 (20%) | 0 | 6 | 0,30 |
+| G1 | 4 | 1 (40) | 0 | 3 | — |
+| G2 | 10 | 5 (12, 21, 28 e as duas senhoras do 88) | 0 | 5 | — |
+| G3 | 4 | 0 | 0 | 0 | — |
+| G4 | 2 | 1 (49) | 0 | 2 | — |
+
+> Em G1, G3 e G4 os números são pequenos demais para uma taxa por entrevistado.
+
+**Leitura:**
+- **Proporção:** 44 dos 55 confrontos (80%) são contra pessoas do lado de Flávio, e 6 (11%) contra eleitores de Lula.
+- **Peso da amostra:** parte da diferença vem da composição (58 × 20 entrevistados REF). Mesmo por entrevistado, o lado de Flávio recebe mais que o dobro de confrontos (0,67 × 0,30).
+- **Edição:** as 7 inserções contrárias feitas pela edição são todas contra a direita. No conteúdo 15, a edição checa o eleitor de Flávio e reforça a fala do eleitor de Lula.
+- **Quem confronta:** poucos perfis fazem quase todos os confrontos.
+
+| Quem confronta | Confrontos | Contra quem |
+|----------------|-----------:|-------------|
+| @brasilforadacaverna, mais o quadro #BFCNASRUAS de outro perfil (40) e um repost (58) | 25 | Lado de Flávio e G2. O canal conduz a favor de Lula (12, 88) |
+| Luciano da Luz, candidato (nº 4090), em vídeos próprios e na entrevista repostada no 25 | 12 | 11 contra o lado de Flávio, 1 contra eleitor de Lula (15) |
+| @reporterdemilhoes | 5 | Todos contra eleitores de Lula. O perfil conduz a favor de Flávio |
+| Outros 9 perfis, inclusive a camada de react do 25 | 13 | Lado de Flávio |
+
+  Os criadores com formato aberto e simétrico (@willzanelati, @vinimachadofc_ e @eduhenricooficial) não fazem nenhum confronto com informação, de nenhum lado.
+- **Qualidade da informação:**
+
+| Precisão | Flávio/direita | Lula/esquerda | G2 |
+|----------|---------------:|--------------:|---:|
+| Correta | 13 | 0 | 1 |
+| Correta com ressalva | 10 | 1 | 2 |
+| Imprecisa | 6 | 0 | 0 |
+| Mista | 3 | 0 | 0 |
+| Incorreta | 0 | 1 | 0 |
+| Não verificada | 8 | 2 | 0 |
+| Não se aplica (argumento ou hipótese) | 4 | 2 | 2 |
+
+  - **Lado de Flávio:** a maioria das informações é documentada (23 de 44 corretas, com ou sem ressalva). Mas 9 trazem erro de quem confronta, seja o entrevistador ou a edição (7, 10, 19, 26, 31, 41, 54 e 58).
+  - **Lado de Lula:** só um confronto traz informação negativa checada (15: os escândalos do INSS e do Master, correta com ressalva). Outro usa uma acusação que este arquivo classifica como contrária ao registro público ("o Lula é ladrão ou não é?", 84). Os demais são argumentos, hipóteses ou fatos não verificados.
+- **Consequência:** o corpus mostra como eleitores de Flávio reagem a entrevistadores que, na maioria, fazem campanha ou conduzem a favor de Lula. Ele **não permite comparar** essa reação com a de eleitores de Lula diante de informação equivalente. O desequilíbrio é um achado sobre a amostra, não sobre os eleitorados: mostra quem produz entrevista de rua com confronto e quem é escolhido para ser confrontado.
+
+### Como reagem
+
+**Reação inicial e final, por lado** (46 confrontos com reação observável)
+
+| Reação | Flávio/direita inicial | Flávio/direita final | Lula/esquerda inicial | Lula/esquerda final | G2 inicial | G2 final | Total inicial | Total final |
+|--------|----:|----:|----:|----:|----:|----:|----:|----:|
+| Aceita em parte | 12 | 10 | 2 | 1 | 3 | 1 | **17** | 12 |
+| Relativiza | 6 | 3 | 1 | 1 | 0 | 1 | 7 | 5 |
+| Contesta com argumento | 5 | 3 | 0 | 1 | 1 | 1 | 6 | 5 |
+| Descarta como falso | 4 | 4 | 1 | 1 | 1 | 1 | 6 | 6 |
+| Muda de assunto ou não responde | 4 | 3 | 1 | 0 | 0 | 1 | 5 | 4 |
+| Contra-ataque | 4 | 9 | 0 | 1 | 0 | 0 | 4 | **10** |
+| Desconfiança generalizada | 1 | 2 | 0 | 0 | 0 | 0 | 1 | 2 |
+| Encerra a conversa | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Reconsidera | 0 | 1 | 0 | 0 | 0 | 0 | 0 | **1** |
+| **Total** | 36 | 36 | 5 | 5 | 5 | 5 | 46 | 46 |
+
+**Reação inicial por tipo de confronto** (todos os lados)
+
+| Tipo | Confrontos | Aceita em parte | Relativiza | Descarta | Contesta | Muda de assunto | Contra-ataque | Desconfiança |
+|------|----:|----:|----:|----:|----:|----:|----:|----:|
+| Negativo sobre o candidato | 25 | 8 | 7 | 4 | 2 | 2 | 1 | 1 |
+| Argumento | 7 | 4 | 0 | 0 | 2 | 1 | 0 | 0 |
+| Positivo sobre o outro lado | 6 | 4 | 0 | 0 | 0 | 1 | 1 | 0 |
+| Contra a afirmação | 6 | 1 | 0 | 1 | 2 | 0 | 2 | 0 |
+| Hipótese | 2 | 0 | 0 | 1 | 0 | 1 | 0 | 0 |
+
+**"Descarta como falso", cruzado com a precisão da informação descartada**
+
+| Conteúdo | Lado | O que foi descartado | Precisão |
+|----------|------|----------------------|----------|
+| 2 | Flávio | Os presos do 8 de janeiro participaram da depredação | Correta |
+| 34 | Flávio | Plano "Punhal Verde e Amarelo" e depoimentos | Correta |
+| 54 | Flávio | Ligação de Flávio com Vorcaro | Correta |
+| 40 | Flávio (G1) | Investigação sobre o destino do dinheiro de Vorcaro (reação final) | Correta com ressalva |
+| 88 | G2 | Plano "Punhal Verde e Amarelo" | Correta com ressalva |
+| 35 | Flávio | Vídeo ou áudio hipotético | Não se aplica |
+| 84 | Lula | "O Lula é ladrão" | Incorreta |
+
+### Leitura cuidadosa
+
+1. **"Vou pensar" é raro.**
+   - Aparece 1 vez em 46 (conteúdo 49, G4), e só como reação final.
+   - Veio depois de muita insistência e de uma pergunta direta sobre mudar o voto, feita por um entrevistador que se apresenta como "orientador". Pode ser cortesia.
+   - Nenhum entrevistado reconsidera na primeira reação.
+   - Isso é compatível com a hipótese do colaborador. Mas o formato não favorece a dúvida: entrevista curta, pública, editada, diante de um interlocutor que costuma ser adversário. Ali, admitir dúvida custa caro.
+
+2. **Aceitar o fato não é mudar o voto.**
+   - A reação inicial mais comum é aceitar em parte (17 de 46).
+   - Ela se concentra em informação positiva sobre o outro lado (4 de 6: Farmácia Popular, universidades, MEI, fim da escala 6x1) e em argumentos (4 de 7).
+   - Quando falam do voto, os que aceitam o mantêm:
+     - "nós ficamos um pouquinho vexados [...] porém continuaremos votando nele" (40);
+     - "foi uma declaração muito impulsiva [...] mas" (15);
+     - "discordo [...] concordo com as pautas" (33).
+   - Isso se parece mais com ponderação do que com recusa a ouvir. A informação é admitida, mas a rejeição ao outro lado pesa mais. É o mesmo padrão descrito para o G1 no Panorama.
+
+3. **Informação grave contra o próprio candidato provoca mais defesa.**
+   - Nos 25 confrontos com informação negativa sobre o candidato, 15 têm reação inicial defensiva:
+     - relativiza: 7;
+     - descarta: 4;
+     - muda de assunto: 2;
+     - contra-ataque: 1;
+     - desconfiança: 1.
+   - Outros 8 aceitam em parte e 2 contestam.
+   - A trama golpista e o caso Vorcaro concentram:
+     - as negações: "isso não existe" (34), "falsa narrativa da esquerda" (54);
+     - a relativização: "eu vejo isso até como normal" (47), "acho normal" (41).
+
+4. **A insistência endurece em vez de abrir.**
+   - Da primeira para a última reação, o contra-ataque passa de 4 para 10, e "aceita em parte" cai de 17 para 12.
+   - Nos vídeos com várias rodadas (40, 47, 54, 58), a troca costuma terminar em ataque ao PT ou ao próprio entrevistador: "você é de esquerda", "o tempo que tem aqui é numa bolha" (54).
+   - A exceção é o conteúdo 49.
+   - Como a edição escolhe o que fica, não dá para saber se isso é um padrão dos entrevistados ou uma escolha de quem edita.
+
+5. **Desconfiança generalizada é rara, mas bloqueia tudo.**
+   - Aparece em 35 e 47, só do lado de Flávio.
+   - "O Supremo tá comprado, o jornalismo tá comprado" (35).
+   - "É difícil você acreditar hoje em alguma coisa" (47). O mesmo aposentado concorda que chamar uma notícia de *fake* também pode servir "para angariar votos". A desconfiança dele vale para todos os lados, não só para um.
+
+6. **"Descartar" não é irracional por si: é preciso ver o que foi descartado.**
+   - Do lado de Flávio (2, 34, 54) e no G2 (88), as negações recaem sobre informação documentada.
+   - A única negação do lado de Lula (84) recai sobre uma afirmação que este arquivo classifica como contrária ao registro público.
+   - Isso **não** mostra que eleitores de Lula avaliam melhor a informação. Mostra que ninguém na amostra os confrontou com informação grave e documentada contra Lula.
+
+7. **Do lado de Lula, aparecem os mesmos movimentos de defesa.**
+   - Relativização: "as polêmicas têm que existir", "não tem um santo" (84).
+   - Contra-ataque: a troca na PF "no governo do pai desse safado" (15).
+   - Recusa de qualquer limite (83).
+   - Com 5 reações observáveis, não dá para comparar frequências entre os lados.
+
+8. **A pergunta de "limite" foi feita uma vez a cada lado, e as duas respostas excluem mudar de voto.**
+   - Lado de Flávio: "mesmo se aparecesse um vídeo dele saindo do avião do Vorcaro?". Resposta: "o PT é mestre pra fake" (35).
+   - Lado de Lula: "qual seria o seu limite para deixar de apoiar o PT?". Resposta: "não chega no limite nada" (83).
+   - É a forma mais direta de testar a hipótese do colaborador e a mais fácil de aplicar igualmente aos dois lados.
+
+## Limites
+
+- **Trechos editados.** Só vemos o que o criador escolheu publicar.
+  - Cortes podem ter tirado reconsiderações ou isolado os momentos mais defensivos.
+  - Sete confrontos são inserções feitas depois da gravação, sem chance de resposta.
+  - Os conteúdos 10 e 83 terminam antes da resposta.
+- **Entrevistador não neutro.**
+  - A maioria dos confrontos (43 de 55) vem de candidatos (Luciano da Luz, Wender Clístenes) ou de canais que conduzem para um lado: @brasilforadacaverna a favor de Lula, @reporterdemilhoes a favor de Flávio.
+  - A defesa pode ser contra o interlocutor, não contra a informação.
+  - 9 dos 55 confrontos usam informação imprecisa ou mista.
+- **Um só codificador, por IA.**
+  - Não há medida de concordância entre codificadores.
+  - Algumas fronteiras pedem julgamento: aceita em parte × relativiza; contra-ataque × contesta com argumento; primeira × última reação.
+  - O mesmo codificador escreveu as definições e as aplicou.
+  - Antes de qualquer uso público dos números, um codificador humano, de preferência de outra posição política, deve recodificar pelo menos 20% dos confrontos, com a concordância medida.
+- **Transcrição automática.**
+  - O Whisper erra palavras e não marca quem fala.
+  - Em 10, 18, 25 e 84, a atribuição de uma frase é provável, não certa. No 88, não dá para separar as duas entrevistadas. O CSV avisa.
+- **Confrontos muito mais frequentes contra eleitores de Flávio:** 44 × 6.
+  - A comparação entre os lados não se sustenta com esta amostra.
+  - O desequilíbrio é, em si, um achado sobre a amostra (ver "Quem é confrontado").
+- **Regra de codificação.** Usar a primeira ou a última reação muda as contagens. As duas estão nas tabelas.
+- **Sem acompanhamento.**
+  - Não sabemos se alguém mudou de voto depois.
+  - Um "vou pensar" diante da câmera pode ser só educação.
+- **Categorias acrescentadas.** Foram duas, além das oito propostas: "contesta com argumento" e "sem reação observável".
+
+## Como testar a hipótese com simetria
+
+1. **Mesma informação para os dois lados.** Para cada entrevistado, levar um fato documentado e checado contra o próprio candidato. A regra de escolha do fato é definida antes da coleta.
+2. **Mesmo entrevistador e gravação integral.** Publicar a entrevista sem cortes.
+3. **Pergunta de limite para todos:** "o que faria você mudar de voto?", ao lado do teste espelhado do Panorama.
+4. **Recontato depois de alguns dias**, para separar cortesia de reconsideração.
+5. **Segundo codificador**, com as mesmas definições desta seção, antes de qualquer número ir a público.
