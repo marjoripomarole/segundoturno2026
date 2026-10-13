@@ -29,7 +29,8 @@ O projeto inclui também uma nota técnica com dados oficiais do TSE e pesquisas
 | [dados/corpus.csv](dados/corpus.csv) | Os 98 conteúdos: link, perfil, data, lote, grupo, alcance, legenda |
 | [dados/coleta/](dados/coleta/) | Listas de coleta: sementes, buscas, triagem e vídeos compartilhados pelo colaborador |
 | [dados/primeiro_turno_presidente_por_uf.csv](dados/primeiro_turno_presidente_por_uf.csv) | Resultado do 1º turno por UF (TSE) |
-| [scripts/](scripts/) | Download, transcrição, triagem e agregação do TSE |
+| [scripts/](scripts/) | Download, transcrição, triagem, agregação do TSE e verificação da anonimização |
+| [CHECKLIST-ANONIMIZACAO.md](CHECKLIST-ANONIMIZACAO.md) | O que foi anonimizado, onde, e a busca final por nomes |
 
 ## Números atuais (13/10/2026)
 
@@ -61,6 +62,25 @@ python3 scripts/data_do_shortcode.py DeKsl-aNeFW
 ```
 
 Os vídeos não estão no repositório, por direitos autorais e por tamanho. Só links e metadados; as transcrições ficam fora da versão pública.
+
+## Acesso às transcrições
+
+As 90 transcrições automáticas (Whisper, não revisadas) não estão aqui, porque contêm nomes e falas completas de cidadãos comuns. Podem ser cedidas **para fins de pesquisa**.
+
+**Para pedir,** escreva à pesquisadora pelo contato do perfil [@marjoripomarole no GitHub](https://github.com/marjoripomarole), e não em issue pública. Informe:
+
+1. nome, instituição e vínculo;
+2. objetivo da pesquisa e por que as transcrições são necessárias;
+3. aprovação de comitê de ética, ou justificativa se não houver;
+4. quais conteúdos quer, pelos números da coluna `n` de [dados/corpus.csv](dados/corpus.csv).
+
+**Condições de uso:**
+
+- não redistribuir as transcrições nem publicar trechos que identifiquem alguém;
+- não tentar identificar os entrevistados;
+- citar os entrevistados só pelos códigos deste estudo (E2, E15b…);
+- apagar as cópias ao fim do projeto;
+- citar este estudo.
 
 ## Créditos
 
